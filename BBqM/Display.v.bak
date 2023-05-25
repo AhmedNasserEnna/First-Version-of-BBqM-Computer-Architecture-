@@ -1,0 +1,21 @@
+// --------------------------      Display     ------------------------------- //
+module Display( Pcount , Wtime , led0_Pcount , led1_Pcount , led0_Wtime , led1_Wtime ) ;
+// -------------------------- Inputs Declarations ---------------------------- //
+input [2:0]Pcount ;
+input [4:0]Wtime ;
+// ------------------------- Outputs Declarations ---------------------------- //
+output [6:0]led0_Pcount , led1_Pcount ;
+output [6:0]led0_Wtime , led1_Wtime ;
+// --------------------------- Wire Declarations ----------------------------- //
+wire [3:0]Digit0_Wtime = Wtime % 10 ;
+wire [3:0]Digit1_Wtime = Wtime / 10 ;
+//Pcount BCD to 7 segment
+BCD7Seg_Decoder Digit0_Pcount ( 0 , Pcount[2] , Pcount[1] , Pcount[0] , led0_Pcount ) ;
+BCD7Seg_Decoder Digit1_Pcount ( 0 , 0 , 0 , 0 , led1_Pcount ) ;
+//Wtime BCD to 7 segment
+BCD7Seg_Decoder Digit0_wtime (Digit0_Wtime[3] , Digit0_Wtime[2] , Digit0_Wtime[1] , Digit0_Wtime[0] , led0_Wtime ) ;
+BCD7Seg_Decoder Digit1_wtime (Digit1_Wtime[3] , Digit1_Wtime[2] , Digit1_Wtime[1] , Digit1_Wtime[0] , led1_Wtime ) ;
+
+endmodule
+// ----------------------------- End of File --------------------------------- //
+// --------------------------------------------------------------------------- //

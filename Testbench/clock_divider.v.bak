@@ -1,0 +1,52 @@
+// ---------------------------  clock divider  ------------------------------- //
+module clock_divider ( clk , reset , CLK5Hz ) ;
+// -------------------------- Inputs Declarations ---------------------------- //
+input clk, reset ;
+// ------------------------- Outputs Declarations ---------------------------- //
+output CLK5Hz ;
+// ---------------------------- Reg Declarations ----------------------------- //
+reg CLK5Hz ;
+reg [22:0] count ;// log2(5_000_000)=23 bit
+always @( posedge clk or posedge reset )
+  begin
+    if( reset ) // reset the counter circuit to initial (zero)
+      begin
+        count <= 0;
+        CLK5Hz <= 0;
+      end
+    else
+      begin
+        if( count < 1 )
+          count <= count + 1 ; // count 5 million 
+        else 
+          begin
+            CLK5Hz = ~CLK5Hz ; // toggle the clk high\low
+            count <= 0 ;
+          end
+      end
+  end    
+
+endmodule
+// ----------------------------- End of File --------------------------------- //
+// --------------------------------------------------------------------------- //
+
+
+
+
+
+module clock_divider_DUT();
+  
+  reg clk, reset ;
+  wire CLK5Hz ;
+  initial 
+    begin
+      reset<=1;
+     #5 reset<=0;
+      clk = 0 ;
+    end
+  always
+    begin
+      clk = ~clk ;#12.5; 
+    end
+     clock_divider cd( clk , reset , CLK5Hz ) ;
+endmodule

@@ -1,0 +1,113 @@
+------------------------------------------------------------
+Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Slow 1200mV 85C Model Setup 'Tcount[0]'
+Slack : -3.715
+TNS   : -440.339
+
+Type  : Slow 1200mV 85C Model Setup 'CLK'
+Slack : -3.546
+TNS   : -59.824
+
+Type  : Slow 1200mV 85C Model Setup 'Counter:COUNTER|clock_divider:clk|CLK5Hz'
+Slack : -2.386
+TNS   : -21.092
+
+Type  : Slow 1200mV 85C Model Hold 'Tcount[0]'
+Slack : -0.661
+TNS   : -2.828
+
+Type  : Slow 1200mV 85C Model Hold 'Counter:COUNTER|clock_divider:clk|CLK5Hz'
+Slack : 0.330
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'CLK'
+Slack : 0.531
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'CLK'
+Slack : -3.000
+TNS   : -32.328
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'Tcount[0]'
+Slack : -3.000
+TNS   : -3.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'Counter:COUNTER|clock_divider:clk|CLK5Hz'
+Slack : -1.222
+TNS   : -18.330
+
+Type  : Slow 1200mV 0C Model Setup 'Tcount[0]'
+Slack : -3.297
+TNS   : -382.850
+
+Type  : Slow 1200mV 0C Model Setup 'CLK'
+Slack : -3.156
+TNS   : -53.086
+
+Type  : Slow 1200mV 0C Model Setup 'Counter:COUNTER|clock_divider:clk|CLK5Hz'
+Slack : -2.086
+TNS   : -18.062
+
+Type  : Slow 1200mV 0C Model Hold 'Tcount[0]'
+Slack : -0.582
+TNS   : -2.417
+
+Type  : Slow 1200mV 0C Model Hold 'Counter:COUNTER|clock_divider:clk|CLK5Hz'
+Slack : 0.300
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'CLK'
+Slack : 0.489
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'CLK'
+Slack : -3.000
+TNS   : -32.328
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'Tcount[0]'
+Slack : -3.000
+TNS   : -3.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'Counter:COUNTER|clock_divider:clk|CLK5Hz'
+Slack : -1.222
+TNS   : -18.330
+
+Type  : Fast 1200mV 0C Model Setup 'Tcount[0]'
+Slack : -1.996
+TNS   : -179.181
+
+Type  : Fast 1200mV 0C Model Setup 'CLK'
+Slack : -1.217
+TNS   : -14.955
+
+Type  : Fast 1200mV 0C Model Setup 'Counter:COUNTER|clock_divider:clk|CLK5Hz'
+Slack : -0.722
+TNS   : -4.133
+
+Type  : Fast 1200mV 0C Model Hold 'Tcount[0]'
+Slack : -0.343
+TNS   : -3.910
+
+Type  : Fast 1200mV 0C Model Hold 'Counter:COUNTER|clock_divider:clk|CLK5Hz'
+Slack : 0.152
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'CLK'
+Slack : 0.242
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'CLK'
+Slack : -3.000
+TNS   : -27.843
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'Tcount[0]'
+Slack : -3.000
+TNS   : -13.886
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'Counter:COUNTER|clock_divider:clk|CLK5Hz'
+Slack : -1.000
+TNS   : -15.000
+
+------------------------------------------------------------

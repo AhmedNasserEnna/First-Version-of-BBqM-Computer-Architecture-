@@ -1,0 +1,59 @@
+// ---------------------------        ROM      ------------------------------- //
+module ROM ( address , Wtime ) ;
+// -------------------------- Inputs Declarations ---------------------------- //
+input [4:0] address;
+// ------------------------- Outputs Declarations ---------------------------- //
+output [4:0] Wtime ;
+// ---------------------------- Reg Declarations ----------------------------- //
+// array of 4 bits regs of 32 element to hold the value of calculated wtime at each case  
+reg [4:0] arom [0:31] ;
+always @*
+	begin
+		case( address )
+			// at Tcount = 0 && Pcount = 0-7 cases
+			5'b00_000 : arom[address] <= 5'b00_000 ;//0
+			5'b00_001 : arom[address] <= 5'b00_000 ;//0
+			5'b00_010 : arom[address] <= 5'b00_000 ;//0
+			5'b00_011 : arom[address] <= 5'b00_000 ;//0
+			5'b00_100 : arom[address] <= 5'b00_000 ;//0
+			5'b00_101 : arom[address] <= 5'b00_000 ;//0
+			5'b00_110 : arom[address] <= 5'b00_000 ;//0
+			5'b00_111 : arom[address] <= 5'b00_000 ;//0
+    
+			// at Tcount = 1 && Pcount = 0-7 cases
+			5'b01_000 : arom[address] <= 5'b00_000 ;//0
+			5'b01_001 : arom[address] <= 5'b00_011 ;//3
+			5'b01_010 : arom[address] <= 5'b00_110 ;//6
+			5'b01_011 : arom[address] <= 5'b01_001 ;//9
+			5'b01_100 : arom[address] <= 5'b01_100 ;//12
+			5'b01_101 : arom[address] <= 5'b01_111 ;//15
+			5'b01_110 : arom[address] <= 5'b10_010 ;//18
+			5'b01_111 : arom[address] <= 5'b10_101 ;//21
+		
+			// at Tcount = 2 && Pcount = 0-7 cases
+			5'b10_000 : arom[address] <= 5'b00_000 ;//0
+			5'b10_001 : arom[address] <= 5'b00_011 ;//3
+			5'b10_010 : arom[address] <= 5'b00_100 ;//4.5~=4
+			5'b10_011 : arom[address] <= 5'b00_110 ;//6
+			5'b10_100 : arom[address] <= 5'b00_111 ;//7.5~=7
+			5'b10_101 : arom[address] <= 5'b01_001 ;//9
+			5'b10_110 : arom[address] <= 5'b01_010 ;//10.5~=10
+			5'b10_111 : arom[address] <= 5'b01_100 ;//12
+    
+			// at Tcount = 3 && Pcount = 0-7 cases
+			5'b11_000 : arom[address] <= 5'b00_000 ;//0
+			5'b11_001 : arom[address] <= 5'b00_011 ;//3
+			5'b11_010 : arom[address] <= 5'b00_100 ;//4
+			5'b11_011 : arom[address] <= 5'b00_101 ;//5
+			5'b11_100 : arom[address] <= 5'b00_110 ;//6
+			5'b11_101 : arom[address] <= 5'b00_111 ;//7
+			5'b11_110 : arom[address] <= 5'b01_000 ;//8
+			5'b11_111 : arom[address] <= 5'b01_001 ;//9
+		
+		endcase  
+	end
+      assign Wtime = arom[address] ;
+
+endmodule
+// ----------------------------- End of File --------------------------------- //
+// --------------------------------------------------------------------------- //

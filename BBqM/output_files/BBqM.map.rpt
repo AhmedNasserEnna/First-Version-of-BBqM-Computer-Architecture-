@@ -1,0 +1,962 @@
+Analysis & Synthesis report for BBqM
+Mon Apr 25 15:59:54 2022
+Quartus Prime Version 21.1.0 Build 842 10/21/2021 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. State Machine - |BBqM|Counter:COUNTER|UpDown_Counter_FSM:UpDown|State
+  9. User-Specified and Inferred Latches
+ 10. Registers Removed During Synthesis
+ 11. General Register Statistics
+ 12. Inverted Register Statistics
+ 13. Parameter Settings for User Entity Instance: Counter:COUNTER|UpDown_Counter_FSM:UpDown
+ 14. Parameter Settings for Inferred Entity Instance: Display:DISPLAY|lpm_divide:Mod0
+ 15. Parameter Settings for Inferred Entity Instance: Display:DISPLAY|lpm_divide:Div0
+ 16. Port Connectivity Checks: "Display:DISPLAY|sevenSegments:Digit1_Pcount"
+ 17. Port Connectivity Checks: "Display:DISPLAY|sevenSegments:Digit0_Pcount"
+ 18. Post-Synthesis Netlist Statistics for Top Partition
+ 19. Elapsed Time Per Partition
+ 20. Analysis & Synthesis Messages
+ 21. Analysis & Synthesis Suppressed Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2021  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+
+
+
++----------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                     ;
++------------------------------------+---------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Mon Apr 25 15:59:54 2022       ;
+; Quartus Prime Version              ; 21.1.0 Build 842 10/21/2021 SJ Lite Edition ;
+; Revision Name                      ; BBqM                                        ;
+; Top-level Entity Name              ; BBqM                                        ;
+; Family                             ; MAX 10                                      ;
+; Total logic elements               ; 429                                         ;
+;     Total combinational functions  ; 429                                         ;
+;     Dedicated logic registers      ; 39                                          ;
+; Total registers                    ; 39                                          ;
+; Total pins                         ; 37                                          ;
+; Total virtual pins                 ; 0                                           ;
+; Total memory bits                  ; 0                                           ;
+; Embedded Multiplier 9-bit elements ; 0                                           ;
+; Total PLLs                         ; 0                                           ;
+; UFM blocks                         ; 0                                           ;
+; ADC blocks                         ; 0                                           ;
++------------------------------------+---------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                              ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                           ; Setting            ; Default Value      ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                           ; 10M50DAF484C6GES   ;                    ;
+; Top-level entity name                                            ; BBqM               ; BBqM               ;
+; Family name                                                      ; MAX 10             ; Cyclone V          ;
+; Use smart compilation                                            ; Off                ; Off                ;
+; Enable parallel Assembler and Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                      ; Off                ; Off                ;
+; Restructure Multiplexers                                         ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                              ; Off                ; Off                ;
+; Preserve fewer node names                                        ; On                 ; On                 ;
+; Intel FPGA IP Evaluation Mode                                    ; Enable             ; Enable             ;
+; Verilog Version                                                  ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                     ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                         ; Auto               ; Auto               ;
+; Safe State Machine                                               ; Off                ; Off                ;
+; Extract Verilog State Machines                                   ; On                 ; On                 ;
+; Extract VHDL State Machines                                      ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                       ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                   ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                          ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                        ; On                 ; On                 ;
+; Parallel Synthesis                                               ; On                 ; On                 ;
+; DSP Block Balancing                                              ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                               ; On                 ; On                 ;
+; Power-Up Don't Care                                              ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                     ; Off                ; Off                ;
+; Remove Duplicate Registers                                       ; On                 ; On                 ;
+; Ignore CARRY Buffers                                             ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                           ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                            ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                        ; Off                ; Off                ;
+; Ignore LCELL Buffers                                             ; Off                ; Off                ;
+; Ignore SOFT Buffers                                              ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                   ; Off                ; Off                ;
+; Optimization Technique                                           ; Balanced           ; Balanced           ;
+; Carry Chain Length                                               ; 70                 ; 70                 ;
+; Auto Carry Chains                                                ; On                 ; On                 ;
+; Auto Open-Drain Pins                                             ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                            ; Off                ; Off                ;
+; Auto ROM Replacement                                             ; On                 ; On                 ;
+; Auto RAM Replacement                                             ; On                 ; On                 ;
+; Auto DSP Block Replacement                                       ; On                 ; On                 ;
+; Auto Shift Register Replacement                                  ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                  ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                    ; On                 ; On                 ;
+; Strict RAM Replacement                                           ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                           ; Off                ; Off                ;
+; Auto RAM Block Balancing                                         ; On                 ; On                 ;
+; Auto RAM to Logic Cell Conversion                                ; Off                ; Off                ;
+; Auto Resource Sharing                                            ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                               ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                               ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                    ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing              ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                ; Off                ; Off                ;
+; Timing-Driven Synthesis                                          ; On                 ; On                 ;
+; Report Parameter Settings                                        ; On                 ; On                 ;
+; Report Source Assignments                                        ; On                 ; On                 ;
+; Report Connectivity Checks                                       ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                               ; Off                ; Off                ;
+; Synchronization Register Chain Length                            ; 2                  ; 2                  ;
+; Power Optimization During Synthesis                              ; Normal compilation ; Normal compilation ;
+; HDL message level                                                ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                  ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report         ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report               ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report        ; 100                ; 100                ;
+; Clock MUX Protection                                             ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                      ; Off                ; Off                ;
+; Block Design Naming                                              ; Auto               ; Auto               ;
+; SDC constraint protection                                        ; Off                ; Off                ;
+; Synthesis Effort                                                 ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal     ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                             ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                               ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                      ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                           ; On                 ; On                 ;
++------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 16          ;
+; Maximum allowed            ; 16          ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 16          ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;   0.0%      ;
+;     Processors 3-16        ;   0.0%      ;
++----------------------------+-------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                   ;
++----------------------------------+-----------------+------------------------------+----------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                               ; Library ;
++----------------------------------+-----------------+------------------------------+----------------------------------------------------------------------------+---------+
+; UpDown_Counter_FSM.v             ; yes             ; User Verilog HDL File        ; E:/All BBqM Projects/FSM_BBqM/BBqM/UpDown_Counter_FSM.v                    ;         ;
+; sevenSegments.v                  ; yes             ; User Verilog HDL File        ; E:/All BBqM Projects/FSM_BBqM/BBqM/sevenSegments.v                         ;         ;
+; ROM.v                            ; yes             ; User Verilog HDL File        ; E:/All BBqM Projects/FSM_BBqM/BBqM/ROM.v                                   ;         ;
+; FF.v                             ; yes             ; User Verilog HDL File        ; E:/All BBqM Projects/FSM_BBqM/BBqM/FF.v                                    ;         ;
+; Display.v                        ; yes             ; User Verilog HDL File        ; E:/All BBqM Projects/FSM_BBqM/BBqM/Display.v                               ;         ;
+; Counter.v                        ; yes             ; User Verilog HDL File        ; E:/All BBqM Projects/FSM_BBqM/BBqM/Counter.v                               ;         ;
+; clock_divider.v                  ; yes             ; User Verilog HDL File        ; E:/All BBqM Projects/FSM_BBqM/BBqM/clock_divider.v                         ;         ;
+; BBqM.v                           ; yes             ; User Verilog HDL File        ; E:/All BBqM Projects/FSM_BBqM/BBqM/BBqM.v                                  ;         ;
+; lpm_divide.tdf                   ; yes             ; Megafunction                 ; c:/intelfpga_lite/21.1/quartus/libraries/megafunctions/lpm_divide.tdf      ;         ;
+; abs_divider.inc                  ; yes             ; Megafunction                 ; c:/intelfpga_lite/21.1/quartus/libraries/megafunctions/abs_divider.inc     ;         ;
+; sign_div_unsign.inc              ; yes             ; Megafunction                 ; c:/intelfpga_lite/21.1/quartus/libraries/megafunctions/sign_div_unsign.inc ;         ;
+; aglobal211.inc                   ; yes             ; Megafunction                 ; c:/intelfpga_lite/21.1/quartus/libraries/megafunctions/aglobal211.inc      ;         ;
+; db/lpm_divide_9kl.tdf            ; yes             ; Auto-Generated Megafunction  ; E:/All BBqM Projects/FSM_BBqM/BBqM/db/lpm_divide_9kl.tdf                   ;         ;
+; db/sign_div_unsign_8kh.tdf       ; yes             ; Auto-Generated Megafunction  ; E:/All BBqM Projects/FSM_BBqM/BBqM/db/sign_div_unsign_8kh.tdf              ;         ;
+; db/alt_u_div_qee.tdf             ; yes             ; Auto-Generated Megafunction  ; E:/All BBqM Projects/FSM_BBqM/BBqM/db/alt_u_div_qee.tdf                    ;         ;
+; db/add_sub_t3c.tdf               ; yes             ; Auto-Generated Megafunction  ; E:/All BBqM Projects/FSM_BBqM/BBqM/db/add_sub_t3c.tdf                      ;         ;
+; db/add_sub_u3c.tdf               ; yes             ; Auto-Generated Megafunction  ; E:/All BBqM Projects/FSM_BBqM/BBqM/db/add_sub_u3c.tdf                      ;         ;
+; db/lpm_divide_6sl.tdf            ; yes             ; Auto-Generated Megafunction  ; E:/All BBqM Projects/FSM_BBqM/BBqM/db/lpm_divide_6sl.tdf                   ;         ;
++----------------------------------+-----------------+------------------------------+----------------------------------------------------------------------------+---------+
+
+
++---------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                                                       ;
++---------------------------------------------+-----------------------------------------------------+
+; Resource                                    ; Usage                                               ;
++---------------------------------------------+-----------------------------------------------------+
+; Estimated Total logic elements              ; 429                                                 ;
+;                                             ;                                                     ;
+; Total combinational functions               ; 429                                                 ;
+; Logic element usage by number of LUT inputs ;                                                     ;
+;     -- 4 input functions                    ; 156                                                 ;
+;     -- 3 input functions                    ; 191                                                 ;
+;     -- <=2 input functions                  ; 82                                                  ;
+;                                             ;                                                     ;
+; Logic elements by mode                      ;                                                     ;
+;     -- normal mode                          ; 393                                                 ;
+;     -- arithmetic mode                      ; 36                                                  ;
+;                                             ;                                                     ;
+; Total registers                             ; 39                                                  ;
+;     -- Dedicated logic registers            ; 39                                                  ;
+;     -- I/O registers                        ; 0                                                   ;
+;                                             ;                                                     ;
+; I/O pins                                    ; 37                                                  ;
+;                                             ;                                                     ;
+; Embedded Multiplier 9-bit elements          ; 0                                                   ;
+;                                             ;                                                     ;
+; Maximum fan-out node                        ; Counter:COUNTER|UpDown_Counter_FSM:UpDown|Pcount[2] ;
+; Maximum fan-out                             ; 67                                                  ;
+; Total fan-out                               ; 1561                                                ;
+; Average fan-out                             ; 2.88                                                ;
++---------------------------------------------+-----------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                                                                         ;
++-------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+-----------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
+; Compilation Hierarchy Node                ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name                                                                                                   ; Entity Name         ; Library Name ;
++-------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+-----------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
+; |BBqM                                     ; 429 (0)             ; 39 (0)                    ; 0           ; 0          ; 0            ; 0       ; 0         ; 37   ; 0            ; 0          ; |BBqM                                                                                                                 ; BBqM                ; work         ;
+;    |Counter:COUNTER|                      ; 52 (0)              ; 39 (0)                    ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |BBqM|Counter:COUNTER                                                                                                 ; Counter             ; work         ;
+;       |FF:FF_DOWN|                        ; 1 (1)               ; 1 (1)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |BBqM|Counter:COUNTER|FF:FF_DOWN                                                                                      ; FF                  ; work         ;
+;       |FF:FF_UP|                          ; 1 (1)               ; 1 (1)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |BBqM|Counter:COUNTER|FF:FF_UP                                                                                        ; FF                  ; work         ;
+;       |UpDown_Counter_FSM:UpDown|         ; 19 (19)             ; 13 (13)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |BBqM|Counter:COUNTER|UpDown_Counter_FSM:UpDown                                                                       ; UpDown_Counter_FSM  ; work         ;
+;       |clock_divider:clk|                 ; 31 (31)             ; 24 (24)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |BBqM|Counter:COUNTER|clock_divider:clk                                                                               ; clock_divider       ; work         ;
+;    |Display:DISPLAY|                      ; 54 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |BBqM|Display:DISPLAY                                                                                                 ; Display             ; work         ;
+;       |lpm_divide:Div0|                   ; 17 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |BBqM|Display:DISPLAY|lpm_divide:Div0                                                                                 ; lpm_divide          ; work         ;
+;          |lpm_divide_6sl:auto_generated|  ; 17 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |BBqM|Display:DISPLAY|lpm_divide:Div0|lpm_divide_6sl:auto_generated                                                   ; lpm_divide_6sl      ; work         ;
+;             |sign_div_unsign_8kh:divider| ; 17 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |BBqM|Display:DISPLAY|lpm_divide:Div0|lpm_divide_6sl:auto_generated|sign_div_unsign_8kh:divider                       ; sign_div_unsign_8kh ; work         ;
+;                |alt_u_div_qee:divider|    ; 17 (17)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |BBqM|Display:DISPLAY|lpm_divide:Div0|lpm_divide_6sl:auto_generated|sign_div_unsign_8kh:divider|alt_u_div_qee:divider ; alt_u_div_qee       ; work         ;
+;       |lpm_divide:Mod0|                   ; 20 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |BBqM|Display:DISPLAY|lpm_divide:Mod0                                                                                 ; lpm_divide          ; work         ;
+;          |lpm_divide_9kl:auto_generated|  ; 20 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |BBqM|Display:DISPLAY|lpm_divide:Mod0|lpm_divide_9kl:auto_generated                                                   ; lpm_divide_9kl      ; work         ;
+;             |sign_div_unsign_8kh:divider| ; 20 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |BBqM|Display:DISPLAY|lpm_divide:Mod0|lpm_divide_9kl:auto_generated|sign_div_unsign_8kh:divider                       ; sign_div_unsign_8kh ; work         ;
+;                |alt_u_div_qee:divider|    ; 20 (20)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |BBqM|Display:DISPLAY|lpm_divide:Mod0|lpm_divide_9kl:auto_generated|sign_div_unsign_8kh:divider|alt_u_div_qee:divider ; alt_u_div_qee       ; work         ;
+;       |sevenSegments:Digit0_Pcount|       ; 7 (7)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |BBqM|Display:DISPLAY|sevenSegments:Digit0_Pcount                                                                     ; sevenSegments       ; work         ;
+;       |sevenSegments:Digit0_wtime|        ; 7 (7)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |BBqM|Display:DISPLAY|sevenSegments:Digit0_wtime                                                                      ; sevenSegments       ; work         ;
+;       |sevenSegments:Digit1_wtime|        ; 3 (3)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |BBqM|Display:DISPLAY|sevenSegments:Digit1_wtime                                                                      ; sevenSegments       ; work         ;
+;    |ROM:Rom|                              ; 323 (323)           ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |BBqM|ROM:Rom                                                                                                         ; ROM                 ; work         ;
++-------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+-----------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
+Encoding Type:  One-Hot
++--------------------------------------------------------------------------------------------------+
+; State Machine - |BBqM|Counter:COUNTER|UpDown_Counter_FSM:UpDown|State                            ;
++----------+----------+----------+----------+----------+----------+----------+----------+----------+
+; Name     ; State.S7 ; State.S6 ; State.S5 ; State.S4 ; State.S3 ; State.S2 ; State.S1 ; State.S0 ;
++----------+----------+----------+----------+----------+----------+----------+----------+----------+
+; State.S0 ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ;
+; State.S1 ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 1        ; 1        ;
+; State.S2 ; 0        ; 0        ; 0        ; 0        ; 0        ; 1        ; 0        ; 1        ;
+; State.S3 ; 0        ; 0        ; 0        ; 0        ; 1        ; 0        ; 0        ; 1        ;
+; State.S4 ; 0        ; 0        ; 0        ; 1        ; 0        ; 0        ; 0        ; 1        ;
+; State.S5 ; 0        ; 0        ; 1        ; 0        ; 0        ; 0        ; 0        ; 1        ;
+; State.S6 ; 0        ; 1        ; 0        ; 0        ; 0        ; 0        ; 0        ; 1        ;
+; State.S7 ; 1        ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 1        ;
++----------+----------+----------+----------+----------+----------+----------+----------+----------+
+
+
++-----------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                                 ;
++------------------------------------------------------+---------------------+------------------------+
+; Latch Name                                           ; Latch Enable Signal ; Free of Timing Hazards ;
++------------------------------------------------------+---------------------+------------------------+
+; ROM:Rom|arom~15                                      ; ROM:Rom|arom        ; yes                    ;
+; ROM:Rom|arom~45                                      ; ROM:Rom|arom        ; yes                    ;
+; ROM:Rom|arom~5                                       ; ROM:Rom|arom        ; yes                    ;
+; ROM:Rom|arom~55                                      ; ROM:Rom|arom        ; yes                    ;
+; ROM:Rom|arom~60                                      ; ROM:Rom|arom        ; yes                    ;
+; ROM:Rom|arom~30                                      ; ROM:Rom|arom        ; yes                    ;
+; ROM:Rom|arom~20                                      ; ROM:Rom|arom        ; yes                    ;
+; ROM:Rom|arom~70                                      ; ROM:Rom|arom        ; yes                    ;
+; ROM:Rom|arom~10                                      ; ROM:Rom|arom        ; yes                    ;
+; ROM:Rom|arom~40                                      ; ROM:Rom|arom        ; yes                    ;
+; ROM:Rom|arom~0                                       ; ROM:Rom|arom        ; yes                    ;
+; ROM:Rom|arom~50                                      ; ROM:Rom|arom        ; yes                    ;
+; ROM:Rom|arom~65                                      ; ROM:Rom|arom        ; yes                    ;
+; ROM:Rom|arom~35                                      ; ROM:Rom|arom        ; yes                    ;
+; ROM:Rom|arom~25                                      ; ROM:Rom|arom        ; yes                    ;
+; ROM:Rom|arom~75                                      ; ROM:Rom|arom        ; yes                    ;
+; ROM:Rom|arom~95                                      ; ROM:Rom|arom        ; yes                    ;
+; ROM:Rom|arom~110                                     ; ROM:Rom|arom        ; yes                    ;
+; ROM:Rom|arom~90                                      ; ROM:Rom|arom        ; yes                    ;
+; ROM:Rom|arom~115                                     ; ROM:Rom|arom        ; yes                    ;
+; ROM:Rom|arom~140                                     ; ROM:Rom|arom        ; yes                    ;
+; ROM:Rom|arom~125                                     ; ROM:Rom|arom        ; yes                    ;
+; ROM:Rom|arom~120                                     ; ROM:Rom|arom        ; yes                    ;
+; ROM:Rom|arom~145                                     ; ROM:Rom|arom        ; yes                    ;
+; ROM:Rom|arom~100                                     ; ROM:Rom|arom        ; yes                    ;
+; ROM:Rom|arom~85                                      ; ROM:Rom|arom        ; yes                    ;
+; ROM:Rom|arom~80                                      ; ROM:Rom|arom        ; yes                    ;
+; ROM:Rom|arom~105                                     ; ROM:Rom|arom        ; yes                    ;
+; ROM:Rom|arom~150                                     ; ROM:Rom|arom        ; yes                    ;
+; ROM:Rom|arom~135                                     ; ROM:Rom|arom        ; yes                    ;
+; ROM:Rom|arom~130                                     ; ROM:Rom|arom        ; yes                    ;
+; ROM:Rom|arom~155                                     ; ROM:Rom|arom        ; yes                    ;
+; ROM:Rom|arom~46                                      ; ROM:Rom|arom        ; yes                    ;
+; ROM:Rom|arom~16                                      ; ROM:Rom|arom        ; yes                    ;
+; ROM:Rom|arom~6                                       ; ROM:Rom|arom        ; yes                    ;
+; ROM:Rom|arom~56                                      ; ROM:Rom|arom        ; yes                    ;
+; ROM:Rom|arom~31                                      ; ROM:Rom|arom        ; yes                    ;
+; ROM:Rom|arom~61                                      ; ROM:Rom|arom        ; yes                    ;
+; ROM:Rom|arom~21                                      ; ROM:Rom|arom        ; yes                    ;
+; ROM:Rom|arom~71                                      ; ROM:Rom|arom        ; yes                    ;
+; ROM:Rom|arom~41                                      ; ROM:Rom|arom        ; yes                    ;
+; ROM:Rom|arom~11                                      ; ROM:Rom|arom        ; yes                    ;
+; ROM:Rom|arom~1                                       ; ROM:Rom|arom        ; yes                    ;
+; ROM:Rom|arom~51                                      ; ROM:Rom|arom        ; yes                    ;
+; ROM:Rom|arom~36                                      ; ROM:Rom|arom        ; yes                    ;
+; ROM:Rom|arom~66                                      ; ROM:Rom|arom        ; yes                    ;
+; ROM:Rom|arom~26                                      ; ROM:Rom|arom        ; yes                    ;
+; ROM:Rom|arom~76                                      ; ROM:Rom|arom        ; yes                    ;
+; ROM:Rom|arom~126                                     ; ROM:Rom|arom        ; yes                    ;
+; ROM:Rom|arom~141                                     ; ROM:Rom|arom        ; yes                    ;
+; ROM:Rom|arom~121                                     ; ROM:Rom|arom        ; yes                    ;
+; ROM:Rom|arom~146                                     ; ROM:Rom|arom        ; yes                    ;
+; ROM:Rom|arom~111                                     ; ROM:Rom|arom        ; yes                    ;
+; ROM:Rom|arom~96                                      ; ROM:Rom|arom        ; yes                    ;
+; ROM:Rom|arom~91                                      ; ROM:Rom|arom        ; yes                    ;
+; ROM:Rom|arom~116                                     ; ROM:Rom|arom        ; yes                    ;
+; ROM:Rom|arom~101                                     ; ROM:Rom|arom        ; yes                    ;
+; ROM:Rom|arom~86                                      ; ROM:Rom|arom        ; yes                    ;
+; ROM:Rom|arom~81                                      ; ROM:Rom|arom        ; yes                    ;
+; ROM:Rom|arom~106                                     ; ROM:Rom|arom        ; yes                    ;
+; ROM:Rom|arom~136                                     ; ROM:Rom|arom        ; yes                    ;
+; ROM:Rom|arom~151                                     ; ROM:Rom|arom        ; yes                    ;
+; ROM:Rom|arom~131                                     ; ROM:Rom|arom        ; yes                    ;
+; ROM:Rom|arom~156                                     ; ROM:Rom|arom        ; yes                    ;
+; ROM:Rom|arom~17                                      ; ROM:Rom|arom        ; yes                    ;
+; ROM:Rom|arom~47                                      ; ROM:Rom|arom        ; yes                    ;
+; ROM:Rom|arom~7                                       ; ROM:Rom|arom        ; yes                    ;
+; ROM:Rom|arom~57                                      ; ROM:Rom|arom        ; yes                    ;
+; ROM:Rom|arom~62                                      ; ROM:Rom|arom        ; yes                    ;
+; ROM:Rom|arom~32                                      ; ROM:Rom|arom        ; yes                    ;
+; ROM:Rom|arom~22                                      ; ROM:Rom|arom        ; yes                    ;
+; ROM:Rom|arom~72                                      ; ROM:Rom|arom        ; yes                    ;
+; ROM:Rom|arom~12                                      ; ROM:Rom|arom        ; yes                    ;
+; ROM:Rom|arom~42                                      ; ROM:Rom|arom        ; yes                    ;
+; ROM:Rom|arom~2                                       ; ROM:Rom|arom        ; yes                    ;
+; ROM:Rom|arom~52                                      ; ROM:Rom|arom        ; yes                    ;
+; ROM:Rom|arom~67                                      ; ROM:Rom|arom        ; yes                    ;
+; ROM:Rom|arom~37                                      ; ROM:Rom|arom        ; yes                    ;
+; ROM:Rom|arom~27                                      ; ROM:Rom|arom        ; yes                    ;
+; ROM:Rom|arom~77                                      ; ROM:Rom|arom        ; yes                    ;
+; ROM:Rom|arom~97                                      ; ROM:Rom|arom        ; yes                    ;
+; ROM:Rom|arom~112                                     ; ROM:Rom|arom        ; yes                    ;
+; ROM:Rom|arom~92                                      ; ROM:Rom|arom        ; yes                    ;
+; ROM:Rom|arom~117                                     ; ROM:Rom|arom        ; yes                    ;
+; ROM:Rom|arom~142                                     ; ROM:Rom|arom        ; yes                    ;
+; ROM:Rom|arom~127                                     ; ROM:Rom|arom        ; yes                    ;
+; ROM:Rom|arom~122                                     ; ROM:Rom|arom        ; yes                    ;
+; ROM:Rom|arom~147                                     ; ROM:Rom|arom        ; yes                    ;
+; ROM:Rom|arom~102                                     ; ROM:Rom|arom        ; yes                    ;
+; ROM:Rom|arom~87                                      ; ROM:Rom|arom        ; yes                    ;
+; ROM:Rom|arom~82                                      ; ROM:Rom|arom        ; yes                    ;
+; ROM:Rom|arom~107                                     ; ROM:Rom|arom        ; yes                    ;
+; ROM:Rom|arom~152                                     ; ROM:Rom|arom        ; yes                    ;
+; ROM:Rom|arom~137                                     ; ROM:Rom|arom        ; yes                    ;
+; ROM:Rom|arom~132                                     ; ROM:Rom|arom        ; yes                    ;
+; ROM:Rom|arom~157                                     ; ROM:Rom|arom        ; yes                    ;
+; ROM:Rom|arom~33                                      ; ROM:Rom|arom        ; yes                    ;
+; ROM:Rom|arom~63                                      ; ROM:Rom|arom        ; yes                    ;
+; ROM:Rom|arom~23                                      ; ROM:Rom|arom        ; yes                    ;
+; ROM:Rom|arom~73                                      ; ROM:Rom|arom        ; yes                    ;
+; Number of user-specified and inferred latches = 160  ;                     ;                        ;
++------------------------------------------------------+---------------------+------------------------+
+Table restricted to first 100 entries. Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
+
+
++----------------------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                                   ;
++----------------------------------------------------+-----------------------------------------------------------------+
+; Register name                                      ; Reason for Removal                                              ;
++----------------------------------------------------+-----------------------------------------------------------------+
+; Counter:COUNTER|UpDown_Counter_FSM:UpDown|State~12 ; Lost fanout                                                     ;
+; Counter:COUNTER|UpDown_Counter_FSM:UpDown|State~13 ; Lost fanout                                                     ;
+; Counter:COUNTER|UpDown_Counter_FSM:UpDown|State~14 ; Lost fanout                                                     ;
+; Counter:COUNTER|UpDown_Counter_FSM:UpDown|State.S7 ; Merged with Counter:COUNTER|UpDown_Counter_FSM:UpDown|Full_Flag ;
+; Total Number of Removed Registers = 4              ;                                                                 ;
++----------------------------------------------------+-----------------------------------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 39    ;
+; Number of registers using Synchronous Clear  ; 23    ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 39    ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 11    ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++----------------------------------------------------------------+
+; Inverted Register Statistics                                   ;
++------------------------------------------------------+---------+
+; Inverted Register                                    ; Fan out ;
++------------------------------------------------------+---------+
+; Counter:COUNTER|UpDown_Counter_FSM:UpDown|Empty_Flag ; 1       ;
+; Total number of inverted registers = 1               ;         ;
++------------------------------------------------------+---------+
+
+
++----------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Counter:COUNTER|UpDown_Counter_FSM:UpDown ;
++----------------+-------+---------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                          ;
++----------------+-------+---------------------------------------------------------------+
+; S0             ; 000   ; Unsigned Binary                                               ;
+; S1             ; 001   ; Unsigned Binary                                               ;
+; S2             ; 010   ; Unsigned Binary                                               ;
+; S3             ; 011   ; Unsigned Binary                                               ;
+; S4             ; 100   ; Unsigned Binary                                               ;
+; S5             ; 101   ; Unsigned Binary                                               ;
+; S6             ; 110   ; Unsigned Binary                                               ;
+; S7             ; 111   ; Unsigned Binary                                               ;
++----------------+-------+---------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: Display:DISPLAY|lpm_divide:Mod0 ;
++------------------------+----------------+----------------------------------------+
+; Parameter Name         ; Value          ; Type                                   ;
++------------------------+----------------+----------------------------------------+
+; LPM_WIDTHN             ; 5              ; Untyped                                ;
+; LPM_WIDTHD             ; 4              ; Untyped                                ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                ;
+; LPM_PIPELINE           ; 0              ; Untyped                                ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                ;
+; CBXI_PARAMETER         ; lpm_divide_9kl ; Untyped                                ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                             ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                           ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                           ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                         ;
++------------------------+----------------+----------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: Display:DISPLAY|lpm_divide:Div0 ;
++------------------------+----------------+----------------------------------------+
+; Parameter Name         ; Value          ; Type                                   ;
++------------------------+----------------+----------------------------------------+
+; LPM_WIDTHN             ; 5              ; Untyped                                ;
+; LPM_WIDTHD             ; 4              ; Untyped                                ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                ;
+; LPM_PIPELINE           ; 0              ; Untyped                                ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                ;
+; CBXI_PARAMETER         ; lpm_divide_6sl ; Untyped                                ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                             ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                           ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                           ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                         ;
++------------------------+----------------+----------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------+
+; Port Connectivity Checks: "Display:DISPLAY|sevenSegments:Digit1_Pcount" ;
++------+-------+----------+-----------------------------------------------+
+; Port ; Type  ; Severity ; Details                                       ;
++------+-------+----------+-----------------------------------------------+
+; bcd  ; Input ; Info     ; Stuck at GND                                  ;
++------+-------+----------+-----------------------------------------------+
+
+
++-------------------------------------------------------------------------+
+; Port Connectivity Checks: "Display:DISPLAY|sevenSegments:Digit0_Pcount" ;
++--------+-------+----------+---------------------------------------------+
+; Port   ; Type  ; Severity ; Details                                     ;
++--------+-------+----------+---------------------------------------------+
+; bcd[3] ; Input ; Info     ; Stuck at GND                                ;
++--------+-------+----------+---------------------------------------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; boundary_port         ; 37                          ;
+; cycloneiii_ff         ; 39                          ;
+;     CLR               ; 5                           ;
+;     CLR SCLR          ; 23                          ;
+;     ENA CLR           ; 11                          ;
+; cycloneiii_lcell_comb ; 435                         ;
+;     arith             ; 36                          ;
+;         2 data inputs ; 28                          ;
+;         3 data inputs ; 8                           ;
+;     normal            ; 399                         ;
+;         0 data inputs ; 6                           ;
+;         1 data inputs ; 7                           ;
+;         2 data inputs ; 47                          ;
+;         3 data inputs ; 183                         ;
+;         4 data inputs ; 156                         ;
+;                       ;                             ;
+; Max LUT depth         ; 11.70                       ;
+; Average LUT depth     ; 6.14                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:00     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 21.1.0 Build 842 10/21/2021 SJ Lite Edition
+    Info: Processing started: Mon Apr 25 15:59:48 2022
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off BBqM -c BBqM
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 16 of the 16 processors detected
+Info (12021): Found 1 design units, including 1 entities, in source file updown_counter_fsm.v
+    Info (12023): Found entity 1: UpDown_Counter_FSM File: E:/All BBqM Projects/FSM_BBqM/BBqM/UpDown_Counter_FSM.v Line: 2
+Info (12021): Found 1 design units, including 1 entities, in source file sevensegments.v
+    Info (12023): Found entity 1: sevenSegments File: E:/All BBqM Projects/FSM_BBqM/BBqM/sevenSegments.v Line: 2
+Info (12021): Found 1 design units, including 1 entities, in source file rom.v
+    Info (12023): Found entity 1: ROM File: E:/All BBqM Projects/FSM_BBqM/BBqM/ROM.v Line: 2
+Info (12021): Found 1 design units, including 1 entities, in source file ff.v
+    Info (12023): Found entity 1: FF File: E:/All BBqM Projects/FSM_BBqM/BBqM/FF.v Line: 2
+Info (12021): Found 1 design units, including 1 entities, in source file display.v
+    Info (12023): Found entity 1: Display File: E:/All BBqM Projects/FSM_BBqM/BBqM/Display.v Line: 2
+Info (12021): Found 1 design units, including 1 entities, in source file counter.v
+    Info (12023): Found entity 1: Counter File: E:/All BBqM Projects/FSM_BBqM/BBqM/Counter.v Line: 2
+Info (12021): Found 1 design units, including 1 entities, in source file clock_divider.v
+    Info (12023): Found entity 1: clock_divider File: E:/All BBqM Projects/FSM_BBqM/BBqM/clock_divider.v Line: 2
+Info (12021): Found 1 design units, including 1 entities, in source file bbqm.v
+    Info (12023): Found entity 1: BBqM File: E:/All BBqM Projects/FSM_BBqM/BBqM/BBqM.v Line: 2
+Info (12127): Elaborating entity "BBqM" for the top level hierarchy
+Info (12128): Elaborating entity "Counter" for hierarchy "Counter:COUNTER" File: E:/All BBqM Projects/FSM_BBqM/BBqM/BBqM.v Line: 15
+Info (12128): Elaborating entity "clock_divider" for hierarchy "Counter:COUNTER|clock_divider:clk" File: E:/All BBqM Projects/FSM_BBqM/BBqM/Counter.v Line: 13
+Warning (10230): Verilog HDL assignment warning at clock_divider.v(20): truncated value with size 32 to match size of target (23) File: E:/All BBqM Projects/FSM_BBqM/BBqM/clock_divider.v Line: 20
+Info (12128): Elaborating entity "FF" for hierarchy "Counter:COUNTER|FF:FF_UP" File: E:/All BBqM Projects/FSM_BBqM/BBqM/Counter.v Line: 15
+Info (12128): Elaborating entity "UpDown_Counter_FSM" for hierarchy "Counter:COUNTER|UpDown_Counter_FSM:UpDown" File: E:/All BBqM Projects/FSM_BBqM/BBqM/Counter.v Line: 18
+Info (12128): Elaborating entity "ROM" for hierarchy "ROM:Rom" File: E:/All BBqM Projects/FSM_BBqM/BBqM/BBqM.v Line: 18
+Info (12128): Elaborating entity "Display" for hierarchy "Display:DISPLAY" File: E:/All BBqM Projects/FSM_BBqM/BBqM/BBqM.v Line: 20
+Warning (10230): Verilog HDL assignment warning at Display.v(10): truncated value with size 32 to match size of target (4) File: E:/All BBqM Projects/FSM_BBqM/BBqM/Display.v Line: 10
+Warning (10230): Verilog HDL assignment warning at Display.v(11): truncated value with size 32 to match size of target (4) File: E:/All BBqM Projects/FSM_BBqM/BBqM/Display.v Line: 11
+Info (12128): Elaborating entity "sevenSegments" for hierarchy "Display:DISPLAY|sevenSegments:Digit0_Pcount" File: E:/All BBqM Projects/FSM_BBqM/BBqM/Display.v Line: 13
+Info (278001): Inferred 2 megafunctions from design logic
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Display:DISPLAY|Mod0" File: E:/All BBqM Projects/FSM_BBqM/BBqM/Display.v Line: 10
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Display:DISPLAY|Div0" File: E:/All BBqM Projects/FSM_BBqM/BBqM/Display.v Line: 11
+Info (12130): Elaborated megafunction instantiation "Display:DISPLAY|lpm_divide:Mod0" File: E:/All BBqM Projects/FSM_BBqM/BBqM/Display.v Line: 10
+Info (12133): Instantiated megafunction "Display:DISPLAY|lpm_divide:Mod0" with the following parameter: File: E:/All BBqM Projects/FSM_BBqM/BBqM/Display.v Line: 10
+    Info (12134): Parameter "LPM_WIDTHN" = "5"
+    Info (12134): Parameter "LPM_WIDTHD" = "4"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_9kl.tdf
+    Info (12023): Found entity 1: lpm_divide_9kl File: E:/All BBqM Projects/FSM_BBqM/BBqM/db/lpm_divide_9kl.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/sign_div_unsign_8kh.tdf
+    Info (12023): Found entity 1: sign_div_unsign_8kh File: E:/All BBqM Projects/FSM_BBqM/BBqM/db/sign_div_unsign_8kh.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_qee.tdf
+    Info (12023): Found entity 1: alt_u_div_qee File: E:/All BBqM Projects/FSM_BBqM/BBqM/db/alt_u_div_qee.tdf Line: 27
+Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_t3c.tdf
+    Info (12023): Found entity 1: add_sub_t3c File: E:/All BBqM Projects/FSM_BBqM/BBqM/db/add_sub_t3c.tdf Line: 23
+Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_u3c.tdf
+    Info (12023): Found entity 1: add_sub_u3c File: E:/All BBqM Projects/FSM_BBqM/BBqM/db/add_sub_u3c.tdf Line: 23
+Info (12130): Elaborated megafunction instantiation "Display:DISPLAY|lpm_divide:Div0" File: E:/All BBqM Projects/FSM_BBqM/BBqM/Display.v Line: 11
+Info (12133): Instantiated megafunction "Display:DISPLAY|lpm_divide:Div0" with the following parameter: File: E:/All BBqM Projects/FSM_BBqM/BBqM/Display.v Line: 11
+    Info (12134): Parameter "LPM_WIDTHN" = "5"
+    Info (12134): Parameter "LPM_WIDTHD" = "4"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_6sl.tdf
+    Info (12023): Found entity 1: lpm_divide_6sl File: E:/All BBqM Projects/FSM_BBqM/BBqM/db/lpm_divide_6sl.tdf Line: 25
+Warning (13012): Latch ROM:Rom|arom~15 has unsafe behavior File: E:/All BBqM Projects/FSM_BBqM/BBqM/ROM.v Line: 9
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Counter:COUNTER|UpDown_Counter_FSM:UpDown|Pcount[0] File: E:/All BBqM Projects/FSM_BBqM/BBqM/UpDown_Counter_FSM.v Line: 35
+Warning (13012): Latch ROM:Rom|arom~45 has unsafe behavior File: E:/All BBqM Projects/FSM_BBqM/BBqM/ROM.v Line: 9
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Counter:COUNTER|UpDown_Counter_FSM:UpDown|Pcount[0] File: E:/All BBqM Projects/FSM_BBqM/BBqM/UpDown_Counter_FSM.v Line: 35
+Warning (13012): Latch ROM:Rom|arom~5 has unsafe behavior File: E:/All BBqM Projects/FSM_BBqM/BBqM/ROM.v Line: 9
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Counter:COUNTER|UpDown_Counter_FSM:UpDown|Pcount[0] File: E:/All BBqM Projects/FSM_BBqM/BBqM/UpDown_Counter_FSM.v Line: 35
+Warning (13012): Latch ROM:Rom|arom~55 has unsafe behavior File: E:/All BBqM Projects/FSM_BBqM/BBqM/ROM.v Line: 9
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Counter:COUNTER|UpDown_Counter_FSM:UpDown|Pcount[0] File: E:/All BBqM Projects/FSM_BBqM/BBqM/UpDown_Counter_FSM.v Line: 35
+Warning (13012): Latch ROM:Rom|arom~60 has unsafe behavior File: E:/All BBqM Projects/FSM_BBqM/BBqM/ROM.v Line: 9
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Counter:COUNTER|UpDown_Counter_FSM:UpDown|Pcount[0] File: E:/All BBqM Projects/FSM_BBqM/BBqM/UpDown_Counter_FSM.v Line: 35
+Warning (13012): Latch ROM:Rom|arom~30 has unsafe behavior File: E:/All BBqM Projects/FSM_BBqM/BBqM/ROM.v Line: 9
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Counter:COUNTER|UpDown_Counter_FSM:UpDown|Pcount[0] File: E:/All BBqM Projects/FSM_BBqM/BBqM/UpDown_Counter_FSM.v Line: 35
+Warning (13012): Latch ROM:Rom|arom~20 has unsafe behavior File: E:/All BBqM Projects/FSM_BBqM/BBqM/ROM.v Line: 9
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Counter:COUNTER|UpDown_Counter_FSM:UpDown|Pcount[0] File: E:/All BBqM Projects/FSM_BBqM/BBqM/UpDown_Counter_FSM.v Line: 35
+Warning (13012): Latch ROM:Rom|arom~70 has unsafe behavior File: E:/All BBqM Projects/FSM_BBqM/BBqM/ROM.v Line: 9
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Counter:COUNTER|UpDown_Counter_FSM:UpDown|Pcount[0] File: E:/All BBqM Projects/FSM_BBqM/BBqM/UpDown_Counter_FSM.v Line: 35
+Warning (13012): Latch ROM:Rom|arom~10 has unsafe behavior File: E:/All BBqM Projects/FSM_BBqM/BBqM/ROM.v Line: 9
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Counter:COUNTER|UpDown_Counter_FSM:UpDown|Pcount[0] File: E:/All BBqM Projects/FSM_BBqM/BBqM/UpDown_Counter_FSM.v Line: 35
+Warning (13012): Latch ROM:Rom|arom~40 has unsafe behavior File: E:/All BBqM Projects/FSM_BBqM/BBqM/ROM.v Line: 9
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Counter:COUNTER|UpDown_Counter_FSM:UpDown|Pcount[0] File: E:/All BBqM Projects/FSM_BBqM/BBqM/UpDown_Counter_FSM.v Line: 35
+Warning (13012): Latch ROM:Rom|arom~0 has unsafe behavior File: E:/All BBqM Projects/FSM_BBqM/BBqM/ROM.v Line: 9
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Counter:COUNTER|UpDown_Counter_FSM:UpDown|Pcount[0] File: E:/All BBqM Projects/FSM_BBqM/BBqM/UpDown_Counter_FSM.v Line: 35
+Warning (13012): Latch ROM:Rom|arom~50 has unsafe behavior File: E:/All BBqM Projects/FSM_BBqM/BBqM/ROM.v Line: 9
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Counter:COUNTER|UpDown_Counter_FSM:UpDown|Pcount[0] File: E:/All BBqM Projects/FSM_BBqM/BBqM/UpDown_Counter_FSM.v Line: 35
+Warning (13012): Latch ROM:Rom|arom~65 has unsafe behavior File: E:/All BBqM Projects/FSM_BBqM/BBqM/ROM.v Line: 9
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Counter:COUNTER|UpDown_Counter_FSM:UpDown|Pcount[0] File: E:/All BBqM Projects/FSM_BBqM/BBqM/UpDown_Counter_FSM.v Line: 35
+Warning (13012): Latch ROM:Rom|arom~35 has unsafe behavior File: E:/All BBqM Projects/FSM_BBqM/BBqM/ROM.v Line: 9
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Counter:COUNTER|UpDown_Counter_FSM:UpDown|Pcount[0] File: E:/All BBqM Projects/FSM_BBqM/BBqM/UpDown_Counter_FSM.v Line: 35
+Warning (13012): Latch ROM:Rom|arom~25 has unsafe behavior File: E:/All BBqM Projects/FSM_BBqM/BBqM/ROM.v Line: 9
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Counter:COUNTER|UpDown_Counter_FSM:UpDown|Pcount[0] File: E:/All BBqM Projects/FSM_BBqM/BBqM/UpDown_Counter_FSM.v Line: 35
+Warning (13012): Latch ROM:Rom|arom~75 has unsafe behavior File: E:/All BBqM Projects/FSM_BBqM/BBqM/ROM.v Line: 9
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Counter:COUNTER|UpDown_Counter_FSM:UpDown|Pcount[0] File: E:/All BBqM Projects/FSM_BBqM/BBqM/UpDown_Counter_FSM.v Line: 35
+Warning (13012): Latch ROM:Rom|arom~95 has unsafe behavior File: E:/All BBqM Projects/FSM_BBqM/BBqM/ROM.v Line: 9
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Counter:COUNTER|UpDown_Counter_FSM:UpDown|Pcount[0] File: E:/All BBqM Projects/FSM_BBqM/BBqM/UpDown_Counter_FSM.v Line: 35
+Warning (13012): Latch ROM:Rom|arom~110 has unsafe behavior File: E:/All BBqM Projects/FSM_BBqM/BBqM/ROM.v Line: 9
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Counter:COUNTER|UpDown_Counter_FSM:UpDown|Pcount[0] File: E:/All BBqM Projects/FSM_BBqM/BBqM/UpDown_Counter_FSM.v Line: 35
+Warning (13012): Latch ROM:Rom|arom~90 has unsafe behavior File: E:/All BBqM Projects/FSM_BBqM/BBqM/ROM.v Line: 9
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Counter:COUNTER|UpDown_Counter_FSM:UpDown|Pcount[0] File: E:/All BBqM Projects/FSM_BBqM/BBqM/UpDown_Counter_FSM.v Line: 35
+Warning (13012): Latch ROM:Rom|arom~115 has unsafe behavior File: E:/All BBqM Projects/FSM_BBqM/BBqM/ROM.v Line: 9
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Counter:COUNTER|UpDown_Counter_FSM:UpDown|Pcount[0] File: E:/All BBqM Projects/FSM_BBqM/BBqM/UpDown_Counter_FSM.v Line: 35
+Warning (13012): Latch ROM:Rom|arom~140 has unsafe behavior File: E:/All BBqM Projects/FSM_BBqM/BBqM/ROM.v Line: 9
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Counter:COUNTER|UpDown_Counter_FSM:UpDown|Pcount[0] File: E:/All BBqM Projects/FSM_BBqM/BBqM/UpDown_Counter_FSM.v Line: 35
+Warning (13012): Latch ROM:Rom|arom~125 has unsafe behavior File: E:/All BBqM Projects/FSM_BBqM/BBqM/ROM.v Line: 9
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Counter:COUNTER|UpDown_Counter_FSM:UpDown|Pcount[0] File: E:/All BBqM Projects/FSM_BBqM/BBqM/UpDown_Counter_FSM.v Line: 35
+Warning (13012): Latch ROM:Rom|arom~120 has unsafe behavior File: E:/All BBqM Projects/FSM_BBqM/BBqM/ROM.v Line: 9
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Counter:COUNTER|UpDown_Counter_FSM:UpDown|Pcount[0] File: E:/All BBqM Projects/FSM_BBqM/BBqM/UpDown_Counter_FSM.v Line: 35
+Warning (13012): Latch ROM:Rom|arom~145 has unsafe behavior File: E:/All BBqM Projects/FSM_BBqM/BBqM/ROM.v Line: 9
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Counter:COUNTER|UpDown_Counter_FSM:UpDown|Pcount[0] File: E:/All BBqM Projects/FSM_BBqM/BBqM/UpDown_Counter_FSM.v Line: 35
+Warning (13012): Latch ROM:Rom|arom~100 has unsafe behavior File: E:/All BBqM Projects/FSM_BBqM/BBqM/ROM.v Line: 9
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Counter:COUNTER|UpDown_Counter_FSM:UpDown|Pcount[0] File: E:/All BBqM Projects/FSM_BBqM/BBqM/UpDown_Counter_FSM.v Line: 35
+Warning (13012): Latch ROM:Rom|arom~85 has unsafe behavior File: E:/All BBqM Projects/FSM_BBqM/BBqM/ROM.v Line: 9
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Counter:COUNTER|UpDown_Counter_FSM:UpDown|Pcount[0] File: E:/All BBqM Projects/FSM_BBqM/BBqM/UpDown_Counter_FSM.v Line: 35
+Warning (13012): Latch ROM:Rom|arom~80 has unsafe behavior File: E:/All BBqM Projects/FSM_BBqM/BBqM/ROM.v Line: 9
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Counter:COUNTER|UpDown_Counter_FSM:UpDown|Pcount[0] File: E:/All BBqM Projects/FSM_BBqM/BBqM/UpDown_Counter_FSM.v Line: 35
+Warning (13012): Latch ROM:Rom|arom~105 has unsafe behavior File: E:/All BBqM Projects/FSM_BBqM/BBqM/ROM.v Line: 9
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Counter:COUNTER|UpDown_Counter_FSM:UpDown|Pcount[0] File: E:/All BBqM Projects/FSM_BBqM/BBqM/UpDown_Counter_FSM.v Line: 35
+Warning (13012): Latch ROM:Rom|arom~150 has unsafe behavior File: E:/All BBqM Projects/FSM_BBqM/BBqM/ROM.v Line: 9
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Counter:COUNTER|UpDown_Counter_FSM:UpDown|Pcount[0] File: E:/All BBqM Projects/FSM_BBqM/BBqM/UpDown_Counter_FSM.v Line: 35
+Warning (13012): Latch ROM:Rom|arom~135 has unsafe behavior File: E:/All BBqM Projects/FSM_BBqM/BBqM/ROM.v Line: 9
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Counter:COUNTER|UpDown_Counter_FSM:UpDown|Pcount[0] File: E:/All BBqM Projects/FSM_BBqM/BBqM/UpDown_Counter_FSM.v Line: 35
+Warning (13012): Latch ROM:Rom|arom~130 has unsafe behavior File: E:/All BBqM Projects/FSM_BBqM/BBqM/ROM.v Line: 9
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Counter:COUNTER|UpDown_Counter_FSM:UpDown|Pcount[0] File: E:/All BBqM Projects/FSM_BBqM/BBqM/UpDown_Counter_FSM.v Line: 35
+Warning (13012): Latch ROM:Rom|arom~155 has unsafe behavior File: E:/All BBqM Projects/FSM_BBqM/BBqM/ROM.v Line: 9
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Counter:COUNTER|UpDown_Counter_FSM:UpDown|Pcount[0] File: E:/All BBqM Projects/FSM_BBqM/BBqM/UpDown_Counter_FSM.v Line: 35
+Warning (13012): Latch ROM:Rom|arom~46 has unsafe behavior File: E:/All BBqM Projects/FSM_BBqM/BBqM/ROM.v Line: 9
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Tcount[1] File: E:/All BBqM Projects/FSM_BBqM/BBqM/BBqM.v Line: 5
+Warning (13012): Latch ROM:Rom|arom~16 has unsafe behavior File: E:/All BBqM Projects/FSM_BBqM/BBqM/ROM.v Line: 9
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Tcount[1] File: E:/All BBqM Projects/FSM_BBqM/BBqM/BBqM.v Line: 5
+Warning (13012): Latch ROM:Rom|arom~6 has unsafe behavior File: E:/All BBqM Projects/FSM_BBqM/BBqM/ROM.v Line: 9
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Tcount[1] File: E:/All BBqM Projects/FSM_BBqM/BBqM/BBqM.v Line: 5
+Warning (13012): Latch ROM:Rom|arom~56 has unsafe behavior File: E:/All BBqM Projects/FSM_BBqM/BBqM/ROM.v Line: 9
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Tcount[1] File: E:/All BBqM Projects/FSM_BBqM/BBqM/BBqM.v Line: 5
+Warning (13012): Latch ROM:Rom|arom~31 has unsafe behavior File: E:/All BBqM Projects/FSM_BBqM/BBqM/ROM.v Line: 9
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Tcount[1] File: E:/All BBqM Projects/FSM_BBqM/BBqM/BBqM.v Line: 5
+Warning (13012): Latch ROM:Rom|arom~61 has unsafe behavior File: E:/All BBqM Projects/FSM_BBqM/BBqM/ROM.v Line: 9
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Tcount[1] File: E:/All BBqM Projects/FSM_BBqM/BBqM/BBqM.v Line: 5
+Warning (13012): Latch ROM:Rom|arom~21 has unsafe behavior File: E:/All BBqM Projects/FSM_BBqM/BBqM/ROM.v Line: 9
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Tcount[1] File: E:/All BBqM Projects/FSM_BBqM/BBqM/BBqM.v Line: 5
+Warning (13012): Latch ROM:Rom|arom~71 has unsafe behavior File: E:/All BBqM Projects/FSM_BBqM/BBqM/ROM.v Line: 9
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Tcount[1] File: E:/All BBqM Projects/FSM_BBqM/BBqM/BBqM.v Line: 5
+Warning (13012): Latch ROM:Rom|arom~41 has unsafe behavior File: E:/All BBqM Projects/FSM_BBqM/BBqM/ROM.v Line: 9
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Tcount[1] File: E:/All BBqM Projects/FSM_BBqM/BBqM/BBqM.v Line: 5
+Warning (13012): Latch ROM:Rom|arom~11 has unsafe behavior File: E:/All BBqM Projects/FSM_BBqM/BBqM/ROM.v Line: 9
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Tcount[1] File: E:/All BBqM Projects/FSM_BBqM/BBqM/BBqM.v Line: 5
+Warning (13012): Latch ROM:Rom|arom~1 has unsafe behavior File: E:/All BBqM Projects/FSM_BBqM/BBqM/ROM.v Line: 9
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Tcount[1] File: E:/All BBqM Projects/FSM_BBqM/BBqM/BBqM.v Line: 5
+Warning (13012): Latch ROM:Rom|arom~51 has unsafe behavior File: E:/All BBqM Projects/FSM_BBqM/BBqM/ROM.v Line: 9
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Tcount[1] File: E:/All BBqM Projects/FSM_BBqM/BBqM/BBqM.v Line: 5
+Warning (13012): Latch ROM:Rom|arom~36 has unsafe behavior File: E:/All BBqM Projects/FSM_BBqM/BBqM/ROM.v Line: 9
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Tcount[1] File: E:/All BBqM Projects/FSM_BBqM/BBqM/BBqM.v Line: 5
+Warning (13012): Latch ROM:Rom|arom~66 has unsafe behavior File: E:/All BBqM Projects/FSM_BBqM/BBqM/ROM.v Line: 9
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Tcount[1] File: E:/All BBqM Projects/FSM_BBqM/BBqM/BBqM.v Line: 5
+Warning (13012): Latch ROM:Rom|arom~26 has unsafe behavior File: E:/All BBqM Projects/FSM_BBqM/BBqM/ROM.v Line: 9
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Tcount[1] File: E:/All BBqM Projects/FSM_BBqM/BBqM/BBqM.v Line: 5
+Warning (13012): Latch ROM:Rom|arom~76 has unsafe behavior File: E:/All BBqM Projects/FSM_BBqM/BBqM/ROM.v Line: 9
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Tcount[1] File: E:/All BBqM Projects/FSM_BBqM/BBqM/BBqM.v Line: 5
+Warning (13012): Latch ROM:Rom|arom~126 has unsafe behavior File: E:/All BBqM Projects/FSM_BBqM/BBqM/ROM.v Line: 9
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Tcount[1] File: E:/All BBqM Projects/FSM_BBqM/BBqM/BBqM.v Line: 5
+Warning (13012): Latch ROM:Rom|arom~141 has unsafe behavior File: E:/All BBqM Projects/FSM_BBqM/BBqM/ROM.v Line: 9
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Tcount[1] File: E:/All BBqM Projects/FSM_BBqM/BBqM/BBqM.v Line: 5
+Warning (13012): Latch ROM:Rom|arom~121 has unsafe behavior File: E:/All BBqM Projects/FSM_BBqM/BBqM/ROM.v Line: 9
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Tcount[1] File: E:/All BBqM Projects/FSM_BBqM/BBqM/BBqM.v Line: 5
+Warning (13012): Latch ROM:Rom|arom~146 has unsafe behavior File: E:/All BBqM Projects/FSM_BBqM/BBqM/ROM.v Line: 9
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Tcount[1] File: E:/All BBqM Projects/FSM_BBqM/BBqM/BBqM.v Line: 5
+Warning (13012): Latch ROM:Rom|arom~111 has unsafe behavior File: E:/All BBqM Projects/FSM_BBqM/BBqM/ROM.v Line: 9
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Tcount[1] File: E:/All BBqM Projects/FSM_BBqM/BBqM/BBqM.v Line: 5
+Warning (13012): Latch ROM:Rom|arom~96 has unsafe behavior File: E:/All BBqM Projects/FSM_BBqM/BBqM/ROM.v Line: 9
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Tcount[1] File: E:/All BBqM Projects/FSM_BBqM/BBqM/BBqM.v Line: 5
+Warning (13012): Latch ROM:Rom|arom~91 has unsafe behavior File: E:/All BBqM Projects/FSM_BBqM/BBqM/ROM.v Line: 9
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Tcount[1] File: E:/All BBqM Projects/FSM_BBqM/BBqM/BBqM.v Line: 5
+Warning (13012): Latch ROM:Rom|arom~116 has unsafe behavior File: E:/All BBqM Projects/FSM_BBqM/BBqM/ROM.v Line: 9
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Tcount[1] File: E:/All BBqM Projects/FSM_BBqM/BBqM/BBqM.v Line: 5
+Warning (13012): Latch ROM:Rom|arom~101 has unsafe behavior File: E:/All BBqM Projects/FSM_BBqM/BBqM/ROM.v Line: 9
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Tcount[1] File: E:/All BBqM Projects/FSM_BBqM/BBqM/BBqM.v Line: 5
+Warning (13012): Latch ROM:Rom|arom~86 has unsafe behavior File: E:/All BBqM Projects/FSM_BBqM/BBqM/ROM.v Line: 9
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Tcount[1] File: E:/All BBqM Projects/FSM_BBqM/BBqM/BBqM.v Line: 5
+Warning (13012): Latch ROM:Rom|arom~81 has unsafe behavior File: E:/All BBqM Projects/FSM_BBqM/BBqM/ROM.v Line: 9
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Tcount[1] File: E:/All BBqM Projects/FSM_BBqM/BBqM/BBqM.v Line: 5
+Warning (13012): Latch ROM:Rom|arom~106 has unsafe behavior File: E:/All BBqM Projects/FSM_BBqM/BBqM/ROM.v Line: 9
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Tcount[1] File: E:/All BBqM Projects/FSM_BBqM/BBqM/BBqM.v Line: 5
+Warning (13012): Latch ROM:Rom|arom~136 has unsafe behavior File: E:/All BBqM Projects/FSM_BBqM/BBqM/ROM.v Line: 9
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Tcount[1] File: E:/All BBqM Projects/FSM_BBqM/BBqM/BBqM.v Line: 5
+Warning (13012): Latch ROM:Rom|arom~151 has unsafe behavior File: E:/All BBqM Projects/FSM_BBqM/BBqM/ROM.v Line: 9
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Tcount[1] File: E:/All BBqM Projects/FSM_BBqM/BBqM/BBqM.v Line: 5
+Warning (13012): Latch ROM:Rom|arom~131 has unsafe behavior File: E:/All BBqM Projects/FSM_BBqM/BBqM/ROM.v Line: 9
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Tcount[1] File: E:/All BBqM Projects/FSM_BBqM/BBqM/BBqM.v Line: 5
+Warning (13012): Latch ROM:Rom|arom~156 has unsafe behavior File: E:/All BBqM Projects/FSM_BBqM/BBqM/ROM.v Line: 9
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Tcount[1] File: E:/All BBqM Projects/FSM_BBqM/BBqM/BBqM.v Line: 5
+Warning (13012): Latch ROM:Rom|arom~17 has unsafe behavior File: E:/All BBqM Projects/FSM_BBqM/BBqM/ROM.v Line: 9
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Tcount[1] File: E:/All BBqM Projects/FSM_BBqM/BBqM/BBqM.v Line: 5
+Warning (13012): Latch ROM:Rom|arom~47 has unsafe behavior File: E:/All BBqM Projects/FSM_BBqM/BBqM/ROM.v Line: 9
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Tcount[1] File: E:/All BBqM Projects/FSM_BBqM/BBqM/BBqM.v Line: 5
+Warning (13012): Latch ROM:Rom|arom~7 has unsafe behavior File: E:/All BBqM Projects/FSM_BBqM/BBqM/ROM.v Line: 9
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Tcount[1] File: E:/All BBqM Projects/FSM_BBqM/BBqM/BBqM.v Line: 5
+Warning (13012): Latch ROM:Rom|arom~57 has unsafe behavior File: E:/All BBqM Projects/FSM_BBqM/BBqM/ROM.v Line: 9
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Tcount[1] File: E:/All BBqM Projects/FSM_BBqM/BBqM/BBqM.v Line: 5
+Warning (13012): Latch ROM:Rom|arom~62 has unsafe behavior File: E:/All BBqM Projects/FSM_BBqM/BBqM/ROM.v Line: 9
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Tcount[1] File: E:/All BBqM Projects/FSM_BBqM/BBqM/BBqM.v Line: 5
+Warning (13012): Latch ROM:Rom|arom~32 has unsafe behavior File: E:/All BBqM Projects/FSM_BBqM/BBqM/ROM.v Line: 9
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Tcount[1] File: E:/All BBqM Projects/FSM_BBqM/BBqM/BBqM.v Line: 5
+Warning (13012): Latch ROM:Rom|arom~22 has unsafe behavior File: E:/All BBqM Projects/FSM_BBqM/BBqM/ROM.v Line: 9
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Tcount[1] File: E:/All BBqM Projects/FSM_BBqM/BBqM/BBqM.v Line: 5
+Warning (13012): Latch ROM:Rom|arom~72 has unsafe behavior File: E:/All BBqM Projects/FSM_BBqM/BBqM/ROM.v Line: 9
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Tcount[1] File: E:/All BBqM Projects/FSM_BBqM/BBqM/BBqM.v Line: 5
+Warning (13012): Latch ROM:Rom|arom~12 has unsafe behavior File: E:/All BBqM Projects/FSM_BBqM/BBqM/ROM.v Line: 9
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Tcount[1] File: E:/All BBqM Projects/FSM_BBqM/BBqM/BBqM.v Line: 5
+Warning (13012): Latch ROM:Rom|arom~42 has unsafe behavior File: E:/All BBqM Projects/FSM_BBqM/BBqM/ROM.v Line: 9
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Tcount[1] File: E:/All BBqM Projects/FSM_BBqM/BBqM/BBqM.v Line: 5
+Warning (13012): Latch ROM:Rom|arom~2 has unsafe behavior File: E:/All BBqM Projects/FSM_BBqM/BBqM/ROM.v Line: 9
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Tcount[1] File: E:/All BBqM Projects/FSM_BBqM/BBqM/BBqM.v Line: 5
+Warning (13012): Latch ROM:Rom|arom~52 has unsafe behavior File: E:/All BBqM Projects/FSM_BBqM/BBqM/ROM.v Line: 9
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Tcount[1] File: E:/All BBqM Projects/FSM_BBqM/BBqM/BBqM.v Line: 5
+Warning (13012): Latch ROM:Rom|arom~67 has unsafe behavior File: E:/All BBqM Projects/FSM_BBqM/BBqM/ROM.v Line: 9
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Tcount[1] File: E:/All BBqM Projects/FSM_BBqM/BBqM/BBqM.v Line: 5
+Warning (13012): Latch ROM:Rom|arom~37 has unsafe behavior File: E:/All BBqM Projects/FSM_BBqM/BBqM/ROM.v Line: 9
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Tcount[1] File: E:/All BBqM Projects/FSM_BBqM/BBqM/BBqM.v Line: 5
+Warning (13012): Latch ROM:Rom|arom~27 has unsafe behavior File: E:/All BBqM Projects/FSM_BBqM/BBqM/ROM.v Line: 9
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Tcount[1] File: E:/All BBqM Projects/FSM_BBqM/BBqM/BBqM.v Line: 5
+Warning (13012): Latch ROM:Rom|arom~77 has unsafe behavior File: E:/All BBqM Projects/FSM_BBqM/BBqM/ROM.v Line: 9
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Tcount[1] File: E:/All BBqM Projects/FSM_BBqM/BBqM/BBqM.v Line: 5
+Warning (13012): Latch ROM:Rom|arom~97 has unsafe behavior File: E:/All BBqM Projects/FSM_BBqM/BBqM/ROM.v Line: 9
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Tcount[1] File: E:/All BBqM Projects/FSM_BBqM/BBqM/BBqM.v Line: 5
+Warning (13012): Latch ROM:Rom|arom~112 has unsafe behavior File: E:/All BBqM Projects/FSM_BBqM/BBqM/ROM.v Line: 9
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Tcount[1] File: E:/All BBqM Projects/FSM_BBqM/BBqM/BBqM.v Line: 5
+Warning (13012): Latch ROM:Rom|arom~92 has unsafe behavior File: E:/All BBqM Projects/FSM_BBqM/BBqM/ROM.v Line: 9
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Tcount[1] File: E:/All BBqM Projects/FSM_BBqM/BBqM/BBqM.v Line: 5
+Warning (13012): Latch ROM:Rom|arom~117 has unsafe behavior File: E:/All BBqM Projects/FSM_BBqM/BBqM/ROM.v Line: 9
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Tcount[1] File: E:/All BBqM Projects/FSM_BBqM/BBqM/BBqM.v Line: 5
+Warning (13012): Latch ROM:Rom|arom~142 has unsafe behavior File: E:/All BBqM Projects/FSM_BBqM/BBqM/ROM.v Line: 9
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Tcount[1] File: E:/All BBqM Projects/FSM_BBqM/BBqM/BBqM.v Line: 5
+Warning (13012): Latch ROM:Rom|arom~127 has unsafe behavior File: E:/All BBqM Projects/FSM_BBqM/BBqM/ROM.v Line: 9
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Tcount[1] File: E:/All BBqM Projects/FSM_BBqM/BBqM/BBqM.v Line: 5
+Warning (13012): Latch ROM:Rom|arom~122 has unsafe behavior File: E:/All BBqM Projects/FSM_BBqM/BBqM/ROM.v Line: 9
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Tcount[1] File: E:/All BBqM Projects/FSM_BBqM/BBqM/BBqM.v Line: 5
+Warning (13012): Latch ROM:Rom|arom~147 has unsafe behavior File: E:/All BBqM Projects/FSM_BBqM/BBqM/ROM.v Line: 9
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Tcount[1] File: E:/All BBqM Projects/FSM_BBqM/BBqM/BBqM.v Line: 5
+Warning (13012): Latch ROM:Rom|arom~102 has unsafe behavior File: E:/All BBqM Projects/FSM_BBqM/BBqM/ROM.v Line: 9
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Tcount[1] File: E:/All BBqM Projects/FSM_BBqM/BBqM/BBqM.v Line: 5
+Warning (13012): Latch ROM:Rom|arom~87 has unsafe behavior File: E:/All BBqM Projects/FSM_BBqM/BBqM/ROM.v Line: 9
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Tcount[1] File: E:/All BBqM Projects/FSM_BBqM/BBqM/BBqM.v Line: 5
+Warning (13012): Latch ROM:Rom|arom~82 has unsafe behavior File: E:/All BBqM Projects/FSM_BBqM/BBqM/ROM.v Line: 9
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Tcount[1] File: E:/All BBqM Projects/FSM_BBqM/BBqM/BBqM.v Line: 5
+Warning (13012): Latch ROM:Rom|arom~107 has unsafe behavior File: E:/All BBqM Projects/FSM_BBqM/BBqM/ROM.v Line: 9
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Tcount[1] File: E:/All BBqM Projects/FSM_BBqM/BBqM/BBqM.v Line: 5
+Warning (13012): Latch ROM:Rom|arom~152 has unsafe behavior File: E:/All BBqM Projects/FSM_BBqM/BBqM/ROM.v Line: 9
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Tcount[1] File: E:/All BBqM Projects/FSM_BBqM/BBqM/BBqM.v Line: 5
+Warning (13012): Latch ROM:Rom|arom~137 has unsafe behavior File: E:/All BBqM Projects/FSM_BBqM/BBqM/ROM.v Line: 9
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Tcount[1] File: E:/All BBqM Projects/FSM_BBqM/BBqM/BBqM.v Line: 5
+Warning (13012): Latch ROM:Rom|arom~132 has unsafe behavior File: E:/All BBqM Projects/FSM_BBqM/BBqM/ROM.v Line: 9
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Tcount[1] File: E:/All BBqM Projects/FSM_BBqM/BBqM/BBqM.v Line: 5
+Warning (13012): Latch ROM:Rom|arom~157 has unsafe behavior File: E:/All BBqM Projects/FSM_BBqM/BBqM/ROM.v Line: 9
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Tcount[1] File: E:/All BBqM Projects/FSM_BBqM/BBqM/BBqM.v Line: 5
+Warning (13012): Latch ROM:Rom|arom~33 has unsafe behavior File: E:/All BBqM Projects/FSM_BBqM/BBqM/ROM.v Line: 9
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Counter:COUNTER|UpDown_Counter_FSM:UpDown|Pcount[2] File: E:/All BBqM Projects/FSM_BBqM/BBqM/UpDown_Counter_FSM.v Line: 35
+Warning (13012): Latch ROM:Rom|arom~63 has unsafe behavior File: E:/All BBqM Projects/FSM_BBqM/BBqM/ROM.v Line: 9
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Counter:COUNTER|UpDown_Counter_FSM:UpDown|Pcount[2] File: E:/All BBqM Projects/FSM_BBqM/BBqM/UpDown_Counter_FSM.v Line: 35
+Warning (13012): Latch ROM:Rom|arom~23 has unsafe behavior File: E:/All BBqM Projects/FSM_BBqM/BBqM/ROM.v Line: 9
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Counter:COUNTER|UpDown_Counter_FSM:UpDown|Pcount[2] File: E:/All BBqM Projects/FSM_BBqM/BBqM/UpDown_Counter_FSM.v Line: 35
+Warning (13012): Latch ROM:Rom|arom~73 has unsafe behavior File: E:/All BBqM Projects/FSM_BBqM/BBqM/ROM.v Line: 9
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Counter:COUNTER|UpDown_Counter_FSM:UpDown|Pcount[2] File: E:/All BBqM Projects/FSM_BBqM/BBqM/UpDown_Counter_FSM.v Line: 35
+Warning (13012): Latch ROM:Rom|arom~18 has unsafe behavior File: E:/All BBqM Projects/FSM_BBqM/BBqM/ROM.v Line: 9
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Counter:COUNTER|UpDown_Counter_FSM:UpDown|Pcount[2] File: E:/All BBqM Projects/FSM_BBqM/BBqM/UpDown_Counter_FSM.v Line: 35
+Warning (13012): Latch ROM:Rom|arom~48 has unsafe behavior File: E:/All BBqM Projects/FSM_BBqM/BBqM/ROM.v Line: 9
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Counter:COUNTER|UpDown_Counter_FSM:UpDown|Pcount[2] File: E:/All BBqM Projects/FSM_BBqM/BBqM/UpDown_Counter_FSM.v Line: 35
+Warning (13012): Latch ROM:Rom|arom~8 has unsafe behavior File: E:/All BBqM Projects/FSM_BBqM/BBqM/ROM.v Line: 9
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Counter:COUNTER|UpDown_Counter_FSM:UpDown|Pcount[2] File: E:/All BBqM Projects/FSM_BBqM/BBqM/UpDown_Counter_FSM.v Line: 35
+Warning (13012): Latch ROM:Rom|arom~58 has unsafe behavior File: E:/All BBqM Projects/FSM_BBqM/BBqM/ROM.v Line: 9
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Counter:COUNTER|UpDown_Counter_FSM:UpDown|Pcount[2] File: E:/All BBqM Projects/FSM_BBqM/BBqM/UpDown_Counter_FSM.v Line: 35
+Warning (13012): Latch ROM:Rom|arom~13 has unsafe behavior File: E:/All BBqM Projects/FSM_BBqM/BBqM/ROM.v Line: 9
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Counter:COUNTER|UpDown_Counter_FSM:UpDown|Pcount[2] File: E:/All BBqM Projects/FSM_BBqM/BBqM/UpDown_Counter_FSM.v Line: 35
+Warning (13012): Latch ROM:Rom|arom~43 has unsafe behavior File: E:/All BBqM Projects/FSM_BBqM/BBqM/ROM.v Line: 9
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Counter:COUNTER|UpDown_Counter_FSM:UpDown|Pcount[2] File: E:/All BBqM Projects/FSM_BBqM/BBqM/UpDown_Counter_FSM.v Line: 35
+Warning (13012): Latch ROM:Rom|arom~3 has unsafe behavior File: E:/All BBqM Projects/FSM_BBqM/BBqM/ROM.v Line: 9
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Counter:COUNTER|UpDown_Counter_FSM:UpDown|Pcount[2] File: E:/All BBqM Projects/FSM_BBqM/BBqM/UpDown_Counter_FSM.v Line: 35
+Warning (13012): Latch ROM:Rom|arom~53 has unsafe behavior File: E:/All BBqM Projects/FSM_BBqM/BBqM/ROM.v Line: 9
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Counter:COUNTER|UpDown_Counter_FSM:UpDown|Pcount[2] File: E:/All BBqM Projects/FSM_BBqM/BBqM/UpDown_Counter_FSM.v Line: 35
+Warning (13012): Latch ROM:Rom|arom~38 has unsafe behavior File: E:/All BBqM Projects/FSM_BBqM/BBqM/ROM.v Line: 9
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Counter:COUNTER|UpDown_Counter_FSM:UpDown|Pcount[2] File: E:/All BBqM Projects/FSM_BBqM/BBqM/UpDown_Counter_FSM.v Line: 35
+Warning (13012): Latch ROM:Rom|arom~68 has unsafe behavior File: E:/All BBqM Projects/FSM_BBqM/BBqM/ROM.v Line: 9
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Counter:COUNTER|UpDown_Counter_FSM:UpDown|Pcount[2] File: E:/All BBqM Projects/FSM_BBqM/BBqM/UpDown_Counter_FSM.v Line: 35
+Warning (13012): Latch ROM:Rom|arom~28 has unsafe behavior File: E:/All BBqM Projects/FSM_BBqM/BBqM/ROM.v Line: 9
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Counter:COUNTER|UpDown_Counter_FSM:UpDown|Pcount[2] File: E:/All BBqM Projects/FSM_BBqM/BBqM/UpDown_Counter_FSM.v Line: 35
+Warning (13012): Latch ROM:Rom|arom~78 has unsafe behavior File: E:/All BBqM Projects/FSM_BBqM/BBqM/ROM.v Line: 9
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Counter:COUNTER|UpDown_Counter_FSM:UpDown|Pcount[2] File: E:/All BBqM Projects/FSM_BBqM/BBqM/UpDown_Counter_FSM.v Line: 35
+Warning (13012): Latch ROM:Rom|arom~113 has unsafe behavior File: E:/All BBqM Projects/FSM_BBqM/BBqM/ROM.v Line: 9
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Counter:COUNTER|UpDown_Counter_FSM:UpDown|Pcount[2] File: E:/All BBqM Projects/FSM_BBqM/BBqM/UpDown_Counter_FSM.v Line: 35
+Warning (13012): Latch ROM:Rom|arom~98 has unsafe behavior File: E:/All BBqM Projects/FSM_BBqM/BBqM/ROM.v Line: 9
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Counter:COUNTER|UpDown_Counter_FSM:UpDown|Pcount[2] File: E:/All BBqM Projects/FSM_BBqM/BBqM/UpDown_Counter_FSM.v Line: 35
+Warning (13012): Latch ROM:Rom|arom~93 has unsafe behavior File: E:/All BBqM Projects/FSM_BBqM/BBqM/ROM.v Line: 9
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Counter:COUNTER|UpDown_Counter_FSM:UpDown|Pcount[2] File: E:/All BBqM Projects/FSM_BBqM/BBqM/UpDown_Counter_FSM.v Line: 35
+Warning (13012): Latch ROM:Rom|arom~118 has unsafe behavior File: E:/All BBqM Projects/FSM_BBqM/BBqM/ROM.v Line: 9
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Counter:COUNTER|UpDown_Counter_FSM:UpDown|Pcount[2] File: E:/All BBqM Projects/FSM_BBqM/BBqM/UpDown_Counter_FSM.v Line: 35
+Warning (13012): Latch ROM:Rom|arom~143 has unsafe behavior File: E:/All BBqM Projects/FSM_BBqM/BBqM/ROM.v Line: 9
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Counter:COUNTER|UpDown_Counter_FSM:UpDown|Pcount[2] File: E:/All BBqM Projects/FSM_BBqM/BBqM/UpDown_Counter_FSM.v Line: 35
+Warning (13012): Latch ROM:Rom|arom~128 has unsafe behavior File: E:/All BBqM Projects/FSM_BBqM/BBqM/ROM.v Line: 9
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Counter:COUNTER|UpDown_Counter_FSM:UpDown|Pcount[2] File: E:/All BBqM Projects/FSM_BBqM/BBqM/UpDown_Counter_FSM.v Line: 35
+Warning (13012): Latch ROM:Rom|arom~123 has unsafe behavior File: E:/All BBqM Projects/FSM_BBqM/BBqM/ROM.v Line: 9
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Counter:COUNTER|UpDown_Counter_FSM:UpDown|Pcount[2] File: E:/All BBqM Projects/FSM_BBqM/BBqM/UpDown_Counter_FSM.v Line: 35
+Warning (13012): Latch ROM:Rom|arom~148 has unsafe behavior File: E:/All BBqM Projects/FSM_BBqM/BBqM/ROM.v Line: 9
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Counter:COUNTER|UpDown_Counter_FSM:UpDown|Pcount[2] File: E:/All BBqM Projects/FSM_BBqM/BBqM/UpDown_Counter_FSM.v Line: 35
+Warning (13012): Latch ROM:Rom|arom~103 has unsafe behavior File: E:/All BBqM Projects/FSM_BBqM/BBqM/ROM.v Line: 9
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Counter:COUNTER|UpDown_Counter_FSM:UpDown|Pcount[2] File: E:/All BBqM Projects/FSM_BBqM/BBqM/UpDown_Counter_FSM.v Line: 35
+Warning (13012): Latch ROM:Rom|arom~88 has unsafe behavior File: E:/All BBqM Projects/FSM_BBqM/BBqM/ROM.v Line: 9
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Counter:COUNTER|UpDown_Counter_FSM:UpDown|Pcount[2] File: E:/All BBqM Projects/FSM_BBqM/BBqM/UpDown_Counter_FSM.v Line: 35
+Warning (13012): Latch ROM:Rom|arom~83 has unsafe behavior File: E:/All BBqM Projects/FSM_BBqM/BBqM/ROM.v Line: 9
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Counter:COUNTER|UpDown_Counter_FSM:UpDown|Pcount[2] File: E:/All BBqM Projects/FSM_BBqM/BBqM/UpDown_Counter_FSM.v Line: 35
+Warning (13012): Latch ROM:Rom|arom~108 has unsafe behavior File: E:/All BBqM Projects/FSM_BBqM/BBqM/ROM.v Line: 9
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Counter:COUNTER|UpDown_Counter_FSM:UpDown|Pcount[2] File: E:/All BBqM Projects/FSM_BBqM/BBqM/UpDown_Counter_FSM.v Line: 35
+Warning (13012): Latch ROM:Rom|arom~138 has unsafe behavior File: E:/All BBqM Projects/FSM_BBqM/BBqM/ROM.v Line: 9
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Counter:COUNTER|UpDown_Counter_FSM:UpDown|Pcount[2] File: E:/All BBqM Projects/FSM_BBqM/BBqM/UpDown_Counter_FSM.v Line: 35
+Warning (13012): Latch ROM:Rom|arom~153 has unsafe behavior File: E:/All BBqM Projects/FSM_BBqM/BBqM/ROM.v Line: 9
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Counter:COUNTER|UpDown_Counter_FSM:UpDown|Pcount[2] File: E:/All BBqM Projects/FSM_BBqM/BBqM/UpDown_Counter_FSM.v Line: 35
+Warning (13012): Latch ROM:Rom|arom~133 has unsafe behavior File: E:/All BBqM Projects/FSM_BBqM/BBqM/ROM.v Line: 9
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Counter:COUNTER|UpDown_Counter_FSM:UpDown|Pcount[2] File: E:/All BBqM Projects/FSM_BBqM/BBqM/UpDown_Counter_FSM.v Line: 35
+Warning (13012): Latch ROM:Rom|arom~158 has unsafe behavior File: E:/All BBqM Projects/FSM_BBqM/BBqM/ROM.v Line: 9
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Counter:COUNTER|UpDown_Counter_FSM:UpDown|Pcount[2] File: E:/All BBqM Projects/FSM_BBqM/BBqM/UpDown_Counter_FSM.v Line: 35
+Warning (13012): Latch ROM:Rom|arom~34 has unsafe behavior File: E:/All BBqM Projects/FSM_BBqM/BBqM/ROM.v Line: 9
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Tcount[0] File: E:/All BBqM Projects/FSM_BBqM/BBqM/BBqM.v Line: 5
+Warning (13012): Latch ROM:Rom|arom~54 has unsafe behavior File: E:/All BBqM Projects/FSM_BBqM/BBqM/ROM.v Line: 9
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Tcount[0] File: E:/All BBqM Projects/FSM_BBqM/BBqM/BBqM.v Line: 5
+Warning (13012): Latch ROM:Rom|arom~14 has unsafe behavior File: E:/All BBqM Projects/FSM_BBqM/BBqM/ROM.v Line: 9
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Tcount[0] File: E:/All BBqM Projects/FSM_BBqM/BBqM/BBqM.v Line: 5
+Warning (13012): Latch ROM:Rom|arom~74 has unsafe behavior File: E:/All BBqM Projects/FSM_BBqM/BBqM/ROM.v Line: 9
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Tcount[0] File: E:/All BBqM Projects/FSM_BBqM/BBqM/BBqM.v Line: 5
+Warning (13012): Latch ROM:Rom|arom~49 has unsafe behavior File: E:/All BBqM Projects/FSM_BBqM/BBqM/ROM.v Line: 9
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Tcount[0] File: E:/All BBqM Projects/FSM_BBqM/BBqM/BBqM.v Line: 5
+Warning (13012): Latch ROM:Rom|arom~29 has unsafe behavior File: E:/All BBqM Projects/FSM_BBqM/BBqM/ROM.v Line: 9
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Tcount[0] File: E:/All BBqM Projects/FSM_BBqM/BBqM/BBqM.v Line: 5
+Warning (13012): Latch ROM:Rom|arom~9 has unsafe behavior File: E:/All BBqM Projects/FSM_BBqM/BBqM/ROM.v Line: 9
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Tcount[0] File: E:/All BBqM Projects/FSM_BBqM/BBqM/BBqM.v Line: 5
+Warning (13012): Latch ROM:Rom|arom~69 has unsafe behavior File: E:/All BBqM Projects/FSM_BBqM/BBqM/ROM.v Line: 9
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Tcount[0] File: E:/All BBqM Projects/FSM_BBqM/BBqM/BBqM.v Line: 5
+Warning (13012): Latch ROM:Rom|arom~44 has unsafe behavior File: E:/All BBqM Projects/FSM_BBqM/BBqM/ROM.v Line: 9
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Tcount[0] File: E:/All BBqM Projects/FSM_BBqM/BBqM/BBqM.v Line: 5
+Warning (13012): Latch ROM:Rom|arom~24 has unsafe behavior File: E:/All BBqM Projects/FSM_BBqM/BBqM/ROM.v Line: 9
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Tcount[0] File: E:/All BBqM Projects/FSM_BBqM/BBqM/BBqM.v Line: 5
+Warning (13012): Latch ROM:Rom|arom~4 has unsafe behavior File: E:/All BBqM Projects/FSM_BBqM/BBqM/ROM.v Line: 9
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Tcount[0] File: E:/All BBqM Projects/FSM_BBqM/BBqM/BBqM.v Line: 5
+Warning (13012): Latch ROM:Rom|arom~64 has unsafe behavior File: E:/All BBqM Projects/FSM_BBqM/BBqM/ROM.v Line: 9
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Tcount[0] File: E:/All BBqM Projects/FSM_BBqM/BBqM/BBqM.v Line: 5
+Warning (13012): Latch ROM:Rom|arom~59 has unsafe behavior File: E:/All BBqM Projects/FSM_BBqM/BBqM/ROM.v Line: 9
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Tcount[0] File: E:/All BBqM Projects/FSM_BBqM/BBqM/BBqM.v Line: 5
+Warning (13012): Latch ROM:Rom|arom~39 has unsafe behavior File: E:/All BBqM Projects/FSM_BBqM/BBqM/ROM.v Line: 9
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Tcount[0] File: E:/All BBqM Projects/FSM_BBqM/BBqM/BBqM.v Line: 5
+Warning (13012): Latch ROM:Rom|arom~19 has unsafe behavior File: E:/All BBqM Projects/FSM_BBqM/BBqM/ROM.v Line: 9
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Tcount[0] File: E:/All BBqM Projects/FSM_BBqM/BBqM/BBqM.v Line: 5
+Warning (13012): Latch ROM:Rom|arom~79 has unsafe behavior File: E:/All BBqM Projects/FSM_BBqM/BBqM/ROM.v Line: 9
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Tcount[0] File: E:/All BBqM Projects/FSM_BBqM/BBqM/BBqM.v Line: 5
+Warning (13012): Latch ROM:Rom|arom~99 has unsafe behavior File: E:/All BBqM Projects/FSM_BBqM/BBqM/ROM.v Line: 9
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Tcount[0] File: E:/All BBqM Projects/FSM_BBqM/BBqM/BBqM.v Line: 5
+Warning (13012): Latch ROM:Rom|arom~134 has unsafe behavior File: E:/All BBqM Projects/FSM_BBqM/BBqM/ROM.v Line: 9
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Tcount[0] File: E:/All BBqM Projects/FSM_BBqM/BBqM/BBqM.v Line: 5
+Warning (13012): Latch ROM:Rom|arom~94 has unsafe behavior File: E:/All BBqM Projects/FSM_BBqM/BBqM/ROM.v Line: 9
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Tcount[0] File: E:/All BBqM Projects/FSM_BBqM/BBqM/BBqM.v Line: 5
+Warning (13012): Latch ROM:Rom|arom~139 has unsafe behavior File: E:/All BBqM Projects/FSM_BBqM/BBqM/ROM.v Line: 9
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Tcount[0] File: E:/All BBqM Projects/FSM_BBqM/BBqM/BBqM.v Line: 5
+Warning (13012): Latch ROM:Rom|arom~109 has unsafe behavior File: E:/All BBqM Projects/FSM_BBqM/BBqM/ROM.v Line: 9
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Tcount[0] File: E:/All BBqM Projects/FSM_BBqM/BBqM/BBqM.v Line: 5
+Warning (13012): Latch ROM:Rom|arom~144 has unsafe behavior File: E:/All BBqM Projects/FSM_BBqM/BBqM/ROM.v Line: 9
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Tcount[0] File: E:/All BBqM Projects/FSM_BBqM/BBqM/BBqM.v Line: 5
+Warning (13012): Latch ROM:Rom|arom~104 has unsafe behavior File: E:/All BBqM Projects/FSM_BBqM/BBqM/ROM.v Line: 9
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Tcount[0] File: E:/All BBqM Projects/FSM_BBqM/BBqM/BBqM.v Line: 5
+Warning (13012): Latch ROM:Rom|arom~149 has unsafe behavior File: E:/All BBqM Projects/FSM_BBqM/BBqM/ROM.v Line: 9
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Tcount[0] File: E:/All BBqM Projects/FSM_BBqM/BBqM/BBqM.v Line: 5
+Warning (13012): Latch ROM:Rom|arom~89 has unsafe behavior File: E:/All BBqM Projects/FSM_BBqM/BBqM/ROM.v Line: 9
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Tcount[0] File: E:/All BBqM Projects/FSM_BBqM/BBqM/BBqM.v Line: 5
+Warning (13012): Latch ROM:Rom|arom~124 has unsafe behavior File: E:/All BBqM Projects/FSM_BBqM/BBqM/ROM.v Line: 9
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Tcount[0] File: E:/All BBqM Projects/FSM_BBqM/BBqM/BBqM.v Line: 5
+Warning (13012): Latch ROM:Rom|arom~84 has unsafe behavior File: E:/All BBqM Projects/FSM_BBqM/BBqM/ROM.v Line: 9
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Tcount[0] File: E:/All BBqM Projects/FSM_BBqM/BBqM/BBqM.v Line: 5
+Warning (13012): Latch ROM:Rom|arom~129 has unsafe behavior File: E:/All BBqM Projects/FSM_BBqM/BBqM/ROM.v Line: 9
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Tcount[0] File: E:/All BBqM Projects/FSM_BBqM/BBqM/BBqM.v Line: 5
+Warning (13012): Latch ROM:Rom|arom~119 has unsafe behavior File: E:/All BBqM Projects/FSM_BBqM/BBqM/ROM.v Line: 9
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Tcount[0] File: E:/All BBqM Projects/FSM_BBqM/BBqM/BBqM.v Line: 5
+Warning (13012): Latch ROM:Rom|arom~154 has unsafe behavior File: E:/All BBqM Projects/FSM_BBqM/BBqM/ROM.v Line: 9
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Tcount[0] File: E:/All BBqM Projects/FSM_BBqM/BBqM/BBqM.v Line: 5
+Warning (13012): Latch ROM:Rom|arom~114 has unsafe behavior File: E:/All BBqM Projects/FSM_BBqM/BBqM/ROM.v Line: 9
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Tcount[0] File: E:/All BBqM Projects/FSM_BBqM/BBqM/BBqM.v Line: 5
+Warning (13012): Latch ROM:Rom|arom~159 has unsafe behavior File: E:/All BBqM Projects/FSM_BBqM/BBqM/ROM.v Line: 9
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Tcount[0] File: E:/All BBqM Projects/FSM_BBqM/BBqM/BBqM.v Line: 5
+Info (13000): Registers with preset signals will power-up high File: E:/All BBqM Projects/FSM_BBqM/BBqM/UpDown_Counter_FSM.v Line: 7
+Info (13003): DEV_CLRn pin will set, and not reset, register with preset signal due to NOT Gate Push-Back
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "led1_Pcount[0]" is stuck at VCC File: E:/All BBqM Projects/FSM_BBqM/BBqM/BBqM.v Line: 8
+    Warning (13410): Pin "led1_Pcount[1]" is stuck at GND File: E:/All BBqM Projects/FSM_BBqM/BBqM/BBqM.v Line: 8
+    Warning (13410): Pin "led1_Pcount[2]" is stuck at GND File: E:/All BBqM Projects/FSM_BBqM/BBqM/BBqM.v Line: 8
+    Warning (13410): Pin "led1_Pcount[3]" is stuck at GND File: E:/All BBqM Projects/FSM_BBqM/BBqM/BBqM.v Line: 8
+    Warning (13410): Pin "led1_Pcount[4]" is stuck at GND File: E:/All BBqM Projects/FSM_BBqM/BBqM/BBqM.v Line: 8
+    Warning (13410): Pin "led1_Pcount[5]" is stuck at GND File: E:/All BBqM Projects/FSM_BBqM/BBqM/BBqM.v Line: 8
+    Warning (13410): Pin "led1_Pcount[6]" is stuck at GND File: E:/All BBqM Projects/FSM_BBqM/BBqM/BBqM.v Line: 8
+    Warning (13410): Pin "led1_Wtime[5]" is stuck at GND File: E:/All BBqM Projects/FSM_BBqM/BBqM/BBqM.v Line: 9
+Info (286030): Timing-Driven Synthesis is running
+Info (17049): 3 registers lost all their fanouts during netlist optimizations.
+Info (144001): Generated suppressed messages file E:/All BBqM Projects/FSM_BBqM/BBqM/output_files/BBqM.map.smsg
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 466 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 6 input pins
+    Info (21059): Implemented 31 output pins
+    Info (21061): Implemented 429 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 333 warnings
+    Info: Peak virtual memory: 4845 megabytes
+    Info: Processing ended: Mon Apr 25 15:59:54 2022
+    Info: Elapsed time: 00:00:06
+    Info: Total CPU time (on all processors): 00:00:16
+
+
++------------------------------------------+
+; Analysis & Synthesis Suppressed Messages ;
++------------------------------------------+
+The suppressed messages can be found in E:/All BBqM Projects/FSM_BBqM/BBqM/output_files/BBqM.map.smsg.
+
+

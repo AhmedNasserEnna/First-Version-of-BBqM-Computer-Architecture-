@@ -1,0 +1,11 @@
+
+State Machine - |BBqM|Counter:COUNTER|UpDown_Counter_FSM:UpDown|State
+Name State.S7 State.S6 State.S5 State.S4 State.S3 State.S2 State.S1 State.S0 
+State.S0 0 0 0 0 0 0 0 0 
+State.S1 0 0 0 0 0 0 1 1 
+State.S2 0 0 0 0 0 1 0 1 
+State.S3 0 0 0 0 1 0 0 1 
+State.S4 0 0 0 1 0 0 0 1 
+State.S5 0 0 1 0 0 0 0 1 
+State.S6 0 1 0 0 0 0 0 1 
+State.S7 1 0 0 0 0 0 0 1 

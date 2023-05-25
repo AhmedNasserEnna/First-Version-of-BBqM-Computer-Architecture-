@@ -1,0 +1,376 @@
+# Compile of BBqM.v was successful.
+# Compile of clock_divider.v was successful.
+# Compile of Counter.v was successful.
+# Compile of Display.v was successful.
+# Compile of FF.v was successful.
+# Compile of ROM.v was successful.
+# Compile of sevenSegments.v was successful.
+# Compile of UpDown_Counter_FSM.v was successful.
+# 8 compiles, 0 failed with no errors. 
+do BBqM_DUT.do
+# vsim BBqM_DUT 
+# Loading work.BBqM_DUT
+# Loading work.BBqM
+# Loading work.Counter
+# Loading work.clock_divider
+# Loading work.FF
+# Loading work.UpDown_Counter_FSM
+# Loading work.ROM
+# Loading work.Display
+# Loading work.sevenSegments
+# ** Warning: (vsim-3015) E:/All BBqM Projects/FSM_BBqM/Testbench/BBqM.v(15): [PCDPC] - Port size (4 or 4) does not match connection size (3) for port 'Pcount'. The port definition is at: E:/All BBqM Projects/FSM_BBqM/Testbench/Counter.v(2).
+# 
+#         Region: /BBqM_DUT/bb/COUNTER
+quit -sim
+# Compile of BBqM.v was successful.
+# Compile of clock_divider.v was successful.
+# Compile of Counter.v was successful.
+# Compile of Display.v was successful.
+# Compile of FF.v was successful.
+# Compile of ROM.v was successful.
+# Compile of sevenSegments.v was successful.
+# Compile of UpDown_Counter_FSM.v was successful.
+# 8 compiles, 0 failed with no errors. 
+# Compile of BBqM.v was successful.
+# Compile of clock_divider.v was successful.
+# Compile of Counter.v was successful.
+# Compile of Display.v was successful.
+# Compile of FF.v was successful.
+# Compile of ROM.v was successful.
+# Compile of sevenSegments.v was successful.
+# Compile of UpDown_Counter_FSM.v was successful.
+# 8 compiles, 0 failed with no errors. 
+DO UpDown_Counter_FSM_DUT.DO
+# invalid command name "DO"
+do UpDown_Counter_FSM_DUT.do
+# vsim UpDown_Counter_FSM_DUT 
+# Loading work.UpDown_Counter_FSM_DUT
+# Loading work.UpDown_Counter_FSM
+quit -sim
+# Compile of BBqM.v was successful.
+# Compile of clock_divider.v was successful.
+# Compile of Counter.v was successful.
+# Compile of Display.v was successful.
+# Compile of FF.v was successful.
+# Compile of ROM.v was successful.
+# Compile of sevenSegments.v was successful.
+# Compile of UpDown_Counter_FSM.v was successful.
+# 8 compiles, 0 failed with no errors. 
+do Counter_DUT.do
+# vsim Counter_DUT 
+# Loading work.Counter_DUT
+# Loading work.Counter
+# Loading work.clock_divider
+# Loading work.FF
+# Loading work.UpDown_Counter_FSM
+quit -sim
+# Compile of BBqM.v was successful.
+# Compile of clock_divider.v was successful.
+# Compile of Counter.v was successful.
+# Compile of Display.v was successful.
+# Compile of FF.v was successful.
+# Compile of ROM.v was successful.
+# Compile of sevenSegments.v was successful.
+# Compile of UpDown_Counter_FSM.v was successful.
+# 8 compiles, 0 failed with no errors. 
+# Compile of BBqM.v was successful.
+# Compile of clock_divider.v was successful.
+# Compile of Counter.v was successful.
+# Compile of Display.v was successful.
+# Compile of FF.v was successful.
+# Compile of ROM.v was successful.
+# Compile of sevenSegments.v was successful.
+# Compile of UpDown_Counter_FSM.v was successful.
+# 8 compiles, 0 failed with no errors. 
+do Counter_DUT.do
+# vsim Counter_DUT 
+# Loading work.Counter_DUT
+# Loading work.Counter
+# Loading work.UpDown_Counter_FSM
+quit -sim
+# Compile of BBqM.v was successful.
+# Compile of clock_divider.v was successful.
+# Compile of Counter.v was successful.
+# Compile of Display.v was successful.
+# Compile of FF.v was successful.
+# Compile of ROM.v was successful.
+# Compile of sevenSegments.v was successful.
+# Compile of UpDown_Counter_FSM.v was successful.
+# 8 compiles, 0 failed with no errors. 
+do Counter_DUT.do
+# vsim Counter_DUT 
+# Loading work.Counter_DUT
+# Loading work.Counter
+# Loading work.UpDown_Counter_FSM
+quit -sim
+do ROM_DUT.do
+# vsim ROM_DUT 
+# Loading work.ROM_DUT
+# Loading work.ROM
+quit -sim
+do BBqM_DUT.do
+# vsim BBqM_DUT 
+# Loading work.BBqM_DUT
+# Loading work.BBqM
+# Loading work.Counter
+# Loading work.UpDown_Counter_FSM
+# Loading work.ROM
+# Loading work.Display
+# Loading work.sevenSegments
+quit -sim
+# Compile of BBqM.v was successful.
+# Compile of clock_divider.v was successful.
+# Compile of Counter.v was successful.
+# Compile of Display.v was successful.
+# Compile of FF.v was successful.
+# Compile of ROM.v was successful.
+# Compile of sevenSegments.v was successful.
+# Compile of UpDown_Counter_FSM.v was successful.
+# 8 compiles, 0 failed with no errors. 
+do BBqM_DUT.do
+# vsim BBqM_DUT 
+# Loading work.BBqM_DUT
+# Loading work.BBqM
+# Loading work.Counter
+# Loading work.UpDown_Counter_FSM
+# Loading work.ROM
+# Loading work.Display
+# Loading work.sevenSegments
+quit -sim
+vsim work.BBqM_DUT
+# vsim work.BBqM_DUT 
+# Loading work.BBqM_DUT
+# Loading work.BBqM
+# Loading work.Counter
+# Loading work.UpDown_Counter_FSM
+# Loading work.ROM
+# Loading work.Display
+# Loading work.sevenSegments
+quit -sim
+do Counter_DUT.do
+# vsim Counter_DUT 
+# Loading work.Counter_DUT
+# Loading work.Counter
+# Loading work.UpDown_Counter_FSM
+quit -sim
+do UpDown_Counter_FSM_DUT.do
+# vsim UpDown_Counter_FSM_DUT 
+# Loading work.UpDown_Counter_FSM_DUT
+# Loading work.UpDown_Counter_FSM
+quit -sim
+do ROM_DUT.do
+# vsim ROM_DUT 
+# Loading work.ROM_DUT
+# Loading work.ROM
+quit -sim
+do BBqM_DUT.do
+# vsim BBqM_DUT 
+# Loading work.BBqM_DUT
+# Loading work.BBqM
+# Loading work.Counter
+# Loading work.UpDown_Counter_FSM
+# Loading work.ROM
+# Loading work.Display
+# Loading work.sevenSegments
+quit -sim
+vsim BBqM_DUT
+# vsim BBqM_DUT 
+# Loading work.BBqM_DUT
+# Loading work.BBqM
+# Loading work.Counter
+# Loading work.UpDown_Counter_FSM
+# Loading work.ROM
+# Loading work.Display
+# Loading work.sevenSegments
+quit -sim
+# Compile of BBqM.v was successful.
+# Compile of clock_divider.v was successful.
+# Compile of Counter.v was successful.
+# Compile of Display.v was successful.
+# Compile of FF.v was successful.
+# Compile of ROM.v was successful.
+# Compile of sevenSegments.v was successful.
+# Compile of UpDown_Counter_FSM.v was successful.
+# 8 compiles, 0 failed with no errors. 
+vsim BBqM_DUT
+# vsim BBqM_DUT 
+# Loading work.BBqM_DUT
+# Loading work.BBqM
+# Loading work.Counter
+# Loading work.UpDown_Counter_FSM
+# Loading work.ROM
+# Loading work.Display
+# Loading work.sevenSegments
+add wave -position insertpoint sim:/BBqM_DUT/*
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+quit -sim
+# Compile of BBqM.v was successful.
+# Compile of clock_divider.v was successful.
+# Compile of Counter.v was successful.
+# Compile of Display.v was successful.
+# Compile of FF.v was successful.
+# Compile of ROM.v was successful.
+# Compile of sevenSegments.v was successful.
+# Compile of UpDown_Counter_FSM.v was successful.
+# 8 compiles, 0 failed with no errors. 
+vsim BBqM_DUT
+# vsim BBqM_DUT 
+# Loading work.BBqM_DUT
+# Loading work.BBqM
+# Loading work.Counter
+# Loading work.UpDown_Counter_FSM
+# Loading work.ROM
+# Loading work.Display
+# Loading work.sevenSegments
+add wave -position insertpoint sim:/BBqM_DUT/*
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+quit -sim
+# Compile of BBqM.v was successful.
+# Compile of clock_divider.v was successful.
+# Compile of Counter.v was successful.
+# Compile of Display.v was successful.
+# Compile of FF.v was successful.
+# Compile of ROM.v was successful.
+# Compile of sevenSegments.v was successful.
+# Compile of UpDown_Counter_FSM.v was successful.
+# 8 compiles, 0 failed with no errors. 
+vsim BBqM_DUT
+# vsim BBqM_DUT 
+# Loading work.BBqM_DUT
+# Loading work.BBqM
+# Loading work.Counter
+# Loading work.UpDown_Counter_FSM
+# Loading work.ROM
+# Loading work.Display
+# Loading work.sevenSegments
+add wave -position insertpoint sim:/BBqM_DUT/*
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+quit -sim
+# Compile of BBqM.v was successful.
+# Compile of clock_divider.v was successful.
+# Compile of Counter.v was successful.
+# Compile of Display.v was successful.
+# Compile of FF.v was successful.
+# Compile of ROM.v was successful.
+# Compile of sevenSegments.v was successful.
+# Compile of UpDown_Counter_FSM.v was successful.
+# 8 compiles, 0 failed with no errors. 
+vsim BBqM_DUT
+# vsim BBqM_DUT 
+# Loading work.BBqM_DUT
+# Loading work.BBqM
+# Loading work.Counter
+# Loading work.UpDown_Counter_FSM
+# Loading work.ROM
+# Loading work.Display
+# Loading work.sevenSegments
+add wave -position insertpoint sim:/BBqM_DUT/*
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+quit -sim
+# Compile of BBqM.v was successful.
+# Compile of clock_divider.v was successful.
+# Compile of Counter.v was successful.
+# Compile of Display.v was successful.
+# Compile of FF.v was successful.
+# Compile of ROM.v was successful.
+# Compile of sevenSegments.v was successful.
+# Compile of UpDown_Counter_FSM.v was successful.
+# 8 compiles, 0 failed with no errors. 

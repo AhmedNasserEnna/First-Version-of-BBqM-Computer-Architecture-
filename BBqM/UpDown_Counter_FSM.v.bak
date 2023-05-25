@@ -1,0 +1,183 @@
+module UpDown_Counter_FSM ( clk , reset , up , down , Pcount , Full_Flag , Empty_Flag , Alarm_Flag ) ;
+// -------------------------- Inputs Declarations ---------------------------- //
+input clk , reset , up , down ;
+// ------------------------- Outputs Declarations ---------------------------- //
+output [3:0] Pcount ;
+output Full_Flag , Empty_Flag , Alarm_Flag ;
+// ---------------------- Parameters Declarations ---------------------------- // 
+parameter 
+      S0 = 3'b000 , // initial state 
+		  S1 = 3'b001 , // shift left state 
+		  S2 = 3'b010 , // shift right state
+		  S3 = 3'b011 , 
+      S4 = 3'b100 , 
+      S5 = 3'b101 , 
+      S6 = 3'b110 , 
+      S7 = 3'b111 ; 		 
+// ---------------------------- Reg Declarations ----------------------------- //
+reg [3:0] Pcount;
+reg [2:0] State;
+reg Full_Flag , Empty_Flag , Alarm_Flag ;
+always @( posedge clk or posedge reset )
+	begin
+		 if( reset ) // reset the state to initial state and output to zeros
+			 begin
+				State <= S0 ;
+				Pcount <= 4'b0000 ;
+				Full_Flag <= 1'b0 ;
+				Empty_Flag <= 1'b1 ;
+				Alarm_Flag <= 1'b0 ;
+			 end
+		 else
+		   begin
+			   case(State) // state transitions  
+				  
+				  S0: 
+				      if( up )
+				       begin
+				        State <= S1 ;
+				        Pcount <= 4'b0001 ;
+				        Full_Flag <= 1'b0 ;
+				        Empty_Flag <= 1'b0 ;
+				        Alarm_Flag <= 1'b0 ;  
+				       end
+				      else if( down )
+				       begin
+				        State <= S0 ;
+				        Pcount <= 4'b0000 ;
+				        Full_Flag <= 1'b0 ;
+				        Empty_Flag <= 1'b1 ;
+				        Alarm_Flag <= 1'b1 ;  
+				       end
+				  
+				  S1: 
+				      if( up )
+				       begin
+				        State <= S2 ;
+				        Pcount <= 4'b0010 ;
+				        Full_Flag <= 1'b0 ;
+				        Empty_Flag <= 1'b0 ;
+				        Alarm_Flag <= 1'b0 ;  
+				       end
+				      else if( down )
+				       begin
+				        State <= S0 ;
+				        Pcount <= 4'b0000 ;
+				        Full_Flag <= 1'b0 ;
+				        Empty_Flag <= 1'b1 ;
+				        Alarm_Flag <= 1'b0 ;  
+				       end
+				  
+				  S2:  
+				      if( up )
+				       begin
+				        State <= S3 ;
+				        Pcount <= 4'b0011 ;
+				        Full_Flag <= 1'b0 ;
+				        Empty_Flag <= 1'b0 ;
+				        Alarm_Flag <= 1'b0 ;  
+				       end
+				      else if( down )
+				       begin
+				        State <= S1 ;
+				        Pcount <= 4'b0001 ;
+				        Full_Flag <= 1'b0 ;
+				        Empty_Flag <= 1'b0 ;
+				        Alarm_Flag <= 1'b0 ;  
+				       end
+				      
+				  S3: 
+				      if( up )
+				       begin
+				        State <= S4 ;
+				        Pcount <= 4'b0100 ;
+				        Full_Flag <= 1'b0 ;
+				        Empty_Flag <= 1'b0 ;
+				        Alarm_Flag <= 1'b0 ;  
+				       end
+				      else if( down )
+				       begin
+				        State <= S2 ;
+				        Pcount <= 4'b0010 ;
+				        Full_Flag <= 1'b0 ;
+				        Empty_Flag <= 1'b0 ;
+				        Alarm_Flag <= 1'b0 ;  
+			         end
+			    S4:    
+			       if( up )
+				      begin
+				        State <= S5 ;
+				        Pcount <= 4'b0101 ;
+				        Full_Flag <= 1'b0 ;
+				        Empty_Flag <= 1'b0 ;
+				        Alarm_Flag <= 1'b0 ;  
+				      end
+				      else if( down )
+				       begin
+				        State <= S3 ;
+				        Pcount <= 4'b0011 ;
+				        Full_Flag <= 1'b0 ;
+				        Empty_Flag <= 1'b0 ;
+				        Alarm_Flag <= 1'b0 ;
+				       end   
+		    
+		      S5:    
+			        if( up )
+				       begin
+				        State <= S6 ;
+				        Pcount <= 4'b0110 ;
+				        Full_Flag <= 1'b0 ;
+				        Empty_Flag <= 1'b0 ;
+				        Alarm_Flag <= 1'b0 ;  
+				       end
+				      else if( down )
+				       begin
+				        State <= S4 ;
+				        Pcount <= 4'b0100 ;
+				        Full_Flag <= 1'b0 ;
+				        Empty_Flag <= 1'b0 ;
+				        Alarm_Flag <= 1'b0 ; 
+				       end 
+		    
+		      S6:    
+			        if( up )
+				       begin
+				        State <= S7 ;
+				        Pcount <= 4'b0111 ;
+				        Full_Flag <= 1'b1 ;
+				        Empty_Flag <= 1'b0 ;
+				        Alarm_Flag <= 1'b0 ;  
+				       end
+				      else if( down )
+				       begin
+				        State <= S5 ;
+				        Pcount <= 4'b0101 ;
+				        Full_Flag <= 1'b0 ;
+				        Empty_Flag <= 1'b0 ;
+				        Alarm_Flag <= 1'b0 ;  
+				       end
+		    
+		      S7:    
+			        if( up )
+				       begin
+				        State <= S7 ;
+				        Pcount <= 4'b0111 ;
+				        Full_Flag <= 1'b1 ;
+				        Empty_Flag <= 1'b0 ;
+				        Alarm_Flag <= 1'b1 ;  
+				       end
+				      else if( down )
+				       begin
+				        State <= S6 ;
+				        Pcount <= 4'b0110 ;
+				        Full_Flag <= 1'b0 ;
+				        Empty_Flag <= 1'b0 ;
+				        Alarm_Flag <= 1'b0 ;  
+				       end 
+			endcase
+		 end 
+	end
+// --------------------------------------------------------------------------- //
+endmodule
+// ----------------------------- End of File --------------------------------- //
+// --------------------------------------------------------------------------- //

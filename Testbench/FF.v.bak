@@ -1,0 +1,43 @@
+// ---------------------------   T Flip Flop   ------------------------------- //
+module FF ( clk , reset , D , Q ) ;
+// -------------------------- Inputs Declarations ---------------------------- //
+input clk , D, reset ;
+// ------------------------- Outputs Declarations ---------------------------- //
+output Q ;
+// ---------------------------- Reg Declarations ----------------------------- //
+reg Q ;
+always @( posedge clk or posedge reset)
+begin
+  if(reset)
+	  Q <= 0 ;
+  else
+	  Q <= ~D ;
+end
+
+endmodule
+// ----------------------------- End of File --------------------------------- //
+// --------------------------------------------------------------------------- //
+module FF_DUT();
+  reg clk , D, reset ;
+  wire Q;
+  initial
+ begin
+     reset<=1;
+     #5 reset<=0;
+     clk <=0;
+      D<=1; #100;
+      D<=0; #100;
+      D<=1; #100;
+      D<=0; #100;
+      D<=1; #100;
+      D<=0; #100;
+ end
+ 
+
+always
+ begin 
+  clk=~clk;#50;
+    
+ end
+ FF L( clk , reset , D , Q ) ;
+ endmodule

@@ -1,0 +1,334 @@
+|BBqM
+Up => Up.IN1
+Down => Down.IN1
+CLK => CLK.IN1
+reset => reset.IN1
+Tcount[0] => address[3].IN1
+Tcount[1] => address[4].IN1
+Empty_Flag << Counter:COUNTER.port5
+Full_Flag << Counter:COUNTER.port6
+Alarm_Flag << Counter:COUNTER.port7
+led0_Pcount[0] << Display:DISPLAY.port2
+led0_Pcount[1] << Display:DISPLAY.port2
+led0_Pcount[2] << Display:DISPLAY.port2
+led0_Pcount[3] << Display:DISPLAY.port2
+led0_Pcount[4] << Display:DISPLAY.port2
+led0_Pcount[5] << Display:DISPLAY.port2
+led0_Pcount[6] << Display:DISPLAY.port2
+led1_Pcount[0] << Display:DISPLAY.port3
+led1_Pcount[1] << Display:DISPLAY.port3
+led1_Pcount[2] << Display:DISPLAY.port3
+led1_Pcount[3] << Display:DISPLAY.port3
+led1_Pcount[4] << Display:DISPLAY.port3
+led1_Pcount[5] << Display:DISPLAY.port3
+led1_Pcount[6] << Display:DISPLAY.port3
+led0_Wtime[0] << Display:DISPLAY.port4
+led0_Wtime[1] << Display:DISPLAY.port4
+led0_Wtime[2] << Display:DISPLAY.port4
+led0_Wtime[3] << Display:DISPLAY.port4
+led0_Wtime[4] << Display:DISPLAY.port4
+led0_Wtime[5] << Display:DISPLAY.port4
+led0_Wtime[6] << Display:DISPLAY.port4
+led1_Wtime[0] << Display:DISPLAY.port5
+led1_Wtime[1] << Display:DISPLAY.port5
+led1_Wtime[2] << Display:DISPLAY.port5
+led1_Wtime[3] << Display:DISPLAY.port5
+led1_Wtime[4] << Display:DISPLAY.port5
+led1_Wtime[5] << Display:DISPLAY.port5
+led1_Wtime[6] << Display:DISPLAY.port5
+
+
+|BBqM|Counter:COUNTER
+Up => Up.IN1
+Down => Down.IN1
+CLK => CLK.IN1
+reset => reset.IN4
+Pcount[0] <= UpDown_Counter_FSM:UpDown.port4
+Pcount[1] <= UpDown_Counter_FSM:UpDown.port4
+Pcount[2] <= UpDown_Counter_FSM:UpDown.port4
+Empty_Flag <= UpDown_Counter_FSM:UpDown.port6
+Full_Flag <= UpDown_Counter_FSM:UpDown.port5
+Alarm_Flag <= UpDown_Counter_FSM:UpDown.port7
+
+
+|BBqM|Counter:COUNTER|clock_divider:clk
+clk => count[0].CLK
+clk => count[1].CLK
+clk => count[2].CLK
+clk => count[3].CLK
+clk => count[4].CLK
+clk => count[5].CLK
+clk => count[6].CLK
+clk => count[7].CLK
+clk => count[8].CLK
+clk => count[9].CLK
+clk => count[10].CLK
+clk => count[11].CLK
+clk => count[12].CLK
+clk => count[13].CLK
+clk => count[14].CLK
+clk => count[15].CLK
+clk => count[16].CLK
+clk => count[17].CLK
+clk => count[18].CLK
+clk => count[19].CLK
+clk => count[20].CLK
+clk => count[21].CLK
+clk => count[22].CLK
+clk => CLK5Hz~reg0.CLK
+reset => count[0].ACLR
+reset => count[1].ACLR
+reset => count[2].ACLR
+reset => count[3].ACLR
+reset => count[4].ACLR
+reset => count[5].ACLR
+reset => count[6].ACLR
+reset => count[7].ACLR
+reset => count[8].ACLR
+reset => count[9].ACLR
+reset => count[10].ACLR
+reset => count[11].ACLR
+reset => count[12].ACLR
+reset => count[13].ACLR
+reset => count[14].ACLR
+reset => count[15].ACLR
+reset => count[16].ACLR
+reset => count[17].ACLR
+reset => count[18].ACLR
+reset => count[19].ACLR
+reset => count[20].ACLR
+reset => count[21].ACLR
+reset => count[22].ACLR
+reset => CLK5Hz~reg0.ACLR
+CLK5Hz <= CLK5Hz~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|BBqM|Counter:COUNTER|FF:FF_UP
+clk => Q~reg0.CLK
+reset => Q~reg0.ACLR
+D => Q~reg0.DATAIN
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|BBqM|Counter:COUNTER|FF:FF_DOWN
+clk => Q~reg0.CLK
+reset => Q~reg0.ACLR
+D => Q~reg0.DATAIN
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|BBqM|Counter:COUNTER|UpDown_Counter_FSM:UpDown
+clk => Alarm_Flag~reg0.CLK
+clk => Empty_Flag~reg0.CLK
+clk => Full_Flag~reg0.CLK
+clk => Pcount[0]~reg0.CLK
+clk => Pcount[1]~reg0.CLK
+clk => Pcount[2]~reg0.CLK
+clk => State~9.DATAIN
+reset => Alarm_Flag~reg0.ACLR
+reset => Empty_Flag~reg0.PRESET
+reset => Full_Flag~reg0.ACLR
+reset => Pcount[0]~reg0.ACLR
+reset => Pcount[1]~reg0.ACLR
+reset => Pcount[2]~reg0.ACLR
+reset => State~11.DATAIN
+up => State.OUTPUTSELECT
+up => State.OUTPUTSELECT
+up => State.OUTPUTSELECT
+up => State.OUTPUTSELECT
+up => State.OUTPUTSELECT
+up => State.OUTPUTSELECT
+up => State.OUTPUTSELECT
+up => State.OUTPUTSELECT
+up => Pcount.OUTPUTSELECT
+up => Pcount.OUTPUTSELECT
+up => Pcount.OUTPUTSELECT
+up => Full_Flag.OUTPUTSELECT
+up => Empty_Flag.OUTPUTSELECT
+up => Alarm_Flag.OUTPUTSELECT
+up => State.OUTPUTSELECT
+up => State.OUTPUTSELECT
+up => Pcount.OUTPUTSELECT
+up => Pcount.OUTPUTSELECT
+up => Alarm_Flag.OUTPUTSELECT
+up => State.OUTPUTSELECT
+up => State.OUTPUTSELECT
+up => State.OUTPUTSELECT
+up => Pcount.OUTPUTSELECT
+up => Empty_Flag.OUTPUTSELECT
+up => State.OUTPUTSELECT
+up => State.OUTPUTSELECT
+up => Pcount.OUTPUTSELECT
+up => Pcount.OUTPUTSELECT
+up => State.OUTPUTSELECT
+up => State.OUTPUTSELECT
+up => State.OUTPUTSELECT
+up => State.OUTPUTSELECT
+up => Pcount.OUTPUTSELECT
+up => State.OUTPUTSELECT
+up => State.OUTPUTSELECT
+up => Full_Flag.OUTPUTSELECT
+up => State.OUTPUTSELECT
+up => Pcount.OUTPUTSELECT
+up => Alarm_Flag.OUTPUTSELECT
+down => State.OUTPUTSELECT
+down => State.OUTPUTSELECT
+down => State.OUTPUTSELECT
+down => State.OUTPUTSELECT
+down => State.OUTPUTSELECT
+down => State.OUTPUTSELECT
+down => State.OUTPUTSELECT
+down => State.OUTPUTSELECT
+down => Pcount.OUTPUTSELECT
+down => Pcount.OUTPUTSELECT
+down => Pcount.OUTPUTSELECT
+down => Full_Flag.OUTPUTSELECT
+down => Empty_Flag.OUTPUTSELECT
+down => Alarm_Flag.OUTPUTSELECT
+down => Alarm_Flag.OUTPUTSELECT
+down => State.OUTPUTSELECT
+down => State.OUTPUTSELECT
+down => Pcount.OUTPUTSELECT
+down => Empty_Flag.OUTPUTSELECT
+down => State.OUTPUTSELECT
+down => Pcount.OUTPUTSELECT
+down => State.OUTPUTSELECT
+down => State.OUTPUTSELECT
+down => Pcount.OUTPUTSELECT
+down => State.OUTPUTSELECT
+down => State.OUTPUTSELECT
+Pcount[0] <= Pcount[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Pcount[1] <= Pcount[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Pcount[2] <= Pcount[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Full_Flag <= Full_Flag~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Empty_Flag <= Empty_Flag~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Alarm_Flag <= Alarm_Flag~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|BBqM|ROM:Rom
+address[0] => Decoder1.IN4
+address[0] => arom.RADDR
+address[0] => arom.WADDR
+address[1] => Decoder0.IN3
+address[1] => Decoder1.IN3
+address[1] => arom.RADDR1
+address[1] => arom.WADDR1
+address[2] => Decoder0.IN2
+address[2] => Decoder1.IN2
+address[2] => arom.RADDR2
+address[2] => arom.WADDR2
+address[3] => Decoder0.IN1
+address[3] => Decoder1.IN1
+address[3] => arom.RADDR3
+address[3] => arom.WADDR3
+address[4] => Decoder0.IN0
+address[4] => Decoder1.IN0
+address[4] => arom.RADDR4
+address[4] => arom.WADDR4
+Wtime[0] <= arom.DATAOUT
+Wtime[1] <= arom.DATAOUT1
+Wtime[2] <= arom.DATAOUT2
+Wtime[3] <= arom.DATAOUT3
+Wtime[4] <= arom.DATAOUT4
+
+
+|BBqM|Display:DISPLAY
+Pcount[0] => Pcount[0].IN1
+Pcount[1] => Pcount[1].IN1
+Pcount[2] => Pcount[2].IN1
+Wtime[0] => Mod0.IN8
+Wtime[0] => Div0.IN8
+Wtime[1] => Mod0.IN7
+Wtime[1] => Div0.IN7
+Wtime[2] => Mod0.IN6
+Wtime[2] => Div0.IN6
+Wtime[3] => Mod0.IN5
+Wtime[3] => Div0.IN5
+Wtime[4] => Mod0.IN4
+Wtime[4] => Div0.IN4
+led0_Pcount[0] <= sevenSegments:Digit0_Pcount.port1
+led0_Pcount[1] <= sevenSegments:Digit0_Pcount.port1
+led0_Pcount[2] <= sevenSegments:Digit0_Pcount.port1
+led0_Pcount[3] <= sevenSegments:Digit0_Pcount.port1
+led0_Pcount[4] <= sevenSegments:Digit0_Pcount.port1
+led0_Pcount[5] <= sevenSegments:Digit0_Pcount.port1
+led0_Pcount[6] <= sevenSegments:Digit0_Pcount.port1
+led1_Pcount[0] <= sevenSegments:Digit1_Pcount.port1
+led1_Pcount[1] <= sevenSegments:Digit1_Pcount.port1
+led1_Pcount[2] <= sevenSegments:Digit1_Pcount.port1
+led1_Pcount[3] <= sevenSegments:Digit1_Pcount.port1
+led1_Pcount[4] <= sevenSegments:Digit1_Pcount.port1
+led1_Pcount[5] <= sevenSegments:Digit1_Pcount.port1
+led1_Pcount[6] <= sevenSegments:Digit1_Pcount.port1
+led0_Wtime[0] <= sevenSegments:Digit0_wtime.port1
+led0_Wtime[1] <= sevenSegments:Digit0_wtime.port1
+led0_Wtime[2] <= sevenSegments:Digit0_wtime.port1
+led0_Wtime[3] <= sevenSegments:Digit0_wtime.port1
+led0_Wtime[4] <= sevenSegments:Digit0_wtime.port1
+led0_Wtime[5] <= sevenSegments:Digit0_wtime.port1
+led0_Wtime[6] <= sevenSegments:Digit0_wtime.port1
+led1_Wtime[0] <= sevenSegments:Digit1_wtime.port1
+led1_Wtime[1] <= sevenSegments:Digit1_wtime.port1
+led1_Wtime[2] <= sevenSegments:Digit1_wtime.port1
+led1_Wtime[3] <= sevenSegments:Digit1_wtime.port1
+led1_Wtime[4] <= sevenSegments:Digit1_wtime.port1
+led1_Wtime[5] <= sevenSegments:Digit1_wtime.port1
+led1_Wtime[6] <= sevenSegments:Digit1_wtime.port1
+
+
+|BBqM|Display:DISPLAY|sevenSegments:Digit0_Pcount
+bcd[0] => Decoder0.IN3
+bcd[1] => Decoder0.IN2
+bcd[2] => Decoder0.IN1
+bcd[3] => Decoder0.IN0
+dec[0] <= WideOr3.DB_MAX_OUTPUT_PORT_TYPE
+dec[1] <= WideOr2.DB_MAX_OUTPUT_PORT_TYPE
+dec[2] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
+dec[3] <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
+dec[4] <= Decoder0.DB_MAX_OUTPUT_PORT_TYPE
+dec[5] <= dec.DB_MAX_OUTPUT_PORT_TYPE
+dec[6] <= dec.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|BBqM|Display:DISPLAY|sevenSegments:Digit1_Pcount
+bcd[0] => Decoder0.IN3
+bcd[1] => Decoder0.IN2
+bcd[2] => Decoder0.IN1
+bcd[3] => Decoder0.IN0
+dec[0] <= WideOr3.DB_MAX_OUTPUT_PORT_TYPE
+dec[1] <= WideOr2.DB_MAX_OUTPUT_PORT_TYPE
+dec[2] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
+dec[3] <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
+dec[4] <= Decoder0.DB_MAX_OUTPUT_PORT_TYPE
+dec[5] <= dec.DB_MAX_OUTPUT_PORT_TYPE
+dec[6] <= dec.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|BBqM|Display:DISPLAY|sevenSegments:Digit0_wtime
+bcd[0] => Decoder0.IN3
+bcd[1] => Decoder0.IN2
+bcd[2] => Decoder0.IN1
+bcd[3] => Decoder0.IN0
+dec[0] <= WideOr3.DB_MAX_OUTPUT_PORT_TYPE
+dec[1] <= WideOr2.DB_MAX_OUTPUT_PORT_TYPE
+dec[2] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
+dec[3] <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
+dec[4] <= Decoder0.DB_MAX_OUTPUT_PORT_TYPE
+dec[5] <= dec.DB_MAX_OUTPUT_PORT_TYPE
+dec[6] <= dec.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|BBqM|Display:DISPLAY|sevenSegments:Digit1_wtime
+bcd[0] => Decoder0.IN3
+bcd[1] => Decoder0.IN2
+bcd[2] => Decoder0.IN1
+bcd[3] => Decoder0.IN0
+dec[0] <= WideOr3.DB_MAX_OUTPUT_PORT_TYPE
+dec[1] <= WideOr2.DB_MAX_OUTPUT_PORT_TYPE
+dec[2] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
+dec[3] <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
+dec[4] <= Decoder0.DB_MAX_OUTPUT_PORT_TYPE
+dec[5] <= dec.DB_MAX_OUTPUT_PORT_TYPE
+dec[6] <= dec.DB_MAX_OUTPUT_PORT_TYPE
+
+

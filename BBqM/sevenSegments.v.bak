@@ -1,0 +1,50 @@
+/* AUTHOR(S):  Course Instructors 
+Dr. Ahmed Shalaby, Dr. Fatam Saker,
+ Eng. Aya Hatem, Eng Mostafa , Eng. Aya Abdel-Hamid, Eng. Miada, Eng. Abdu-Allah 
+ Project: CS222: Computer Architecture Labs //   
+ Module Name : sevenSegments 
+ Description:  seven segment decoder using Case statement 
+A seven-segment display decoder takes a 4-bit data input bcd as array 
+and produces seven outputs to control light-emitting diodes to display
+a digit from 0 to 9 , and comparison outputs 
+*/
+//###############################################################################
+// ---------------------------  module name    ------------------------------- //
+module sevenSegments (bcd,dec);
+// -------------------------- Inputs Declarations ---------------------------- //
+input [3:0]bcd;
+// ------------------------- Outputs Declarations ---------------------------- //
+output reg [6:0] dec;
+// --------------------------- Wire Declarations ----------------------------- // 
+// ---------------------------- Reg Declarations ----------------------------- //
+// ------------------------- Instantiation Modules --------------------------- //
+// --------------------------------------------------------------------------- //
+// --------------------------------------------------------------------------- //
+// ----------------------- Combinational Logic  ------------------------------ //
+always@(bcd)
+		begin 
+			case(bcd)
+
+				4'b0000 : dec = ~7'b1111110; // 0
+				4'b0001 : dec = ~7'b0110000; // 1
+				4'b0010 : dec = ~7'b1101101; // 2
+				4'b0011 : dec = ~7'b1111001; // 3
+				4'b0100 : dec = ~7'b0110011; // 4
+				4'b0101 : dec = ~7'b1011011; // 5
+				4'b0110 : dec = ~7'b1011111; // 6
+				4'b0111 : dec = ~7'b1110000; // 7
+				4'b1000 : dec = ~7'b1111111; // 8
+				4'b1001 : dec = ~7'b1111011; // 9
+				4'b1010 : dec = ~7'b1110111; // A 
+				4'b1011 : dec = ~7'b1111111; // B
+ 				4'b1100 : dec = ~7'b1001000; // =
+
+			default : dec = ~7'b1111110; //0 default  
+			endcase 
+		end
+// ----------------------- Sequential  Logic  -------------------------------- //
+// --------------------------------------------------------------------------- //
+endmodule
+// ----------------------------- End of File --------------------------------- //
+// --------------------------------------------------------------------------- //
+

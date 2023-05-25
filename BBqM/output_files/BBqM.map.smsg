@@ -1,0 +1,4 @@
+Info (10281): Verilog HDL Declaration information at Display.v(10): object "Digit0_Wtime" differs only in case from object "Digit0_wtime" in the same scope File: E:/All BBqM Projects/FSM_BBqM/BBqM/Display.v Line: 10
+Info (10281): Verilog HDL Declaration information at Display.v(11): object "Digit1_Wtime" differs only in case from object "Digit1_wtime" in the same scope File: E:/All BBqM Projects/FSM_BBqM/BBqM/Display.v Line: 11
+Info (10281): Verilog HDL Declaration information at Counter.v(4): object "CLK" differs only in case from object "clk" in the same scope File: E:/All BBqM Projects/FSM_BBqM/BBqM/Counter.v Line: 4
+Warning (10268): Verilog HDL information at clock_divider.v(10): always construct contains both blocking and non-blocking assignments File: E:/All BBqM Projects/FSM_BBqM/BBqM/clock_divider.v Line: 10
